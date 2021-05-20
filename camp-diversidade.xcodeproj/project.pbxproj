@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3FB7C12655B11900A790E1 /* QuizzItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FB7BF2655B11900A790E1 /* QuizzItemCollectionViewCell.swift */; };
+		BF3FB7C22655B11900A790E1 /* QuizzItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3FB7C02655B11900A790E1 /* QuizzItemCollectionViewCell.xib */; };
 		BF5541FC264C10D400F978A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FB264C10D400F978A8 /* AppDelegate.swift */; };
 		BF5541FE264C10D400F978A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FD264C10D400F978A8 /* SceneDelegate.swift */; };
 		BF554200264C10D400F978A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FF264C10D400F978A8 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF3FB7BF2655B11900A790E1 /* QuizzItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF3FB7C02655B11900A790E1 /* QuizzItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizzItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		BF5541F8264C10D400F978A8 /* camp-diversidade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "camp-diversidade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5541FB264C10D400F978A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF5541FD264C10D400F978A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +41,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF3FB7B52654A66000A790E1 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		BF3FB7B62654A66E00A790E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF3FB7BE2655B0EA00A790E1 /* Xibs */,
+				BF3FB7BB2654A6D400A790E1 /* Storyboards */,
+				BF3FB7BA2654A6C100A790E1 /* Controllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF3FB7B72654A67600A790E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF554206264C10D800F978A8 /* LaunchScreen.storyboard */,
+				BF554204264C10D800F978A8 /* Assets.xcassets */,
+				BF554209264C10D800F978A8 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF3FB7B82654A67F00A790E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BF3FB7B92654A69B00A790E1 /* App Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BF5541FB264C10D400F978A8 /* AppDelegate.swift */,
+				BF5541FD264C10D400F978A8 /* SceneDelegate.swift */,
+			);
+			path = "App Delegates";
+			sourceTree = "<group>";
+		};
+		BF3FB7BA2654A6C100A790E1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF5541FF264C10D400F978A8 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF3FB7BB2654A6D400A790E1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BF554201264C10D400F978A8 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BF3FB7BE2655B0EA00A790E1 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				BF3FB7BF2655B11900A790E1 /* QuizzItemCollectionViewCell.swift */,
+				BF3FB7C02655B11900A790E1 /* QuizzItemCollectionViewCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
 		BF5541EF264C10D400F978A8 = {
 			isa = PBXGroup;
 			children = (
+				BF3FB7B92654A69B00A790E1 /* App Delegates */,
 				BF5541FA264C10D400F978A8 /* camp-diversidade */,
 				BF5541F9264C10D400F978A8 /* Products */,
 			);
@@ -56,13 +129,10 @@
 		BF5541FA264C10D400F978A8 /* camp-diversidade */ = {
 			isa = PBXGroup;
 			children = (
-				BF5541FB264C10D400F978A8 /* AppDelegate.swift */,
-				BF5541FD264C10D400F978A8 /* SceneDelegate.swift */,
-				BF5541FF264C10D400F978A8 /* ViewController.swift */,
-				BF554201264C10D400F978A8 /* Main.storyboard */,
-				BF554204264C10D800F978A8 /* Assets.xcassets */,
-				BF554206264C10D800F978A8 /* LaunchScreen.storyboard */,
-				BF554209264C10D800F978A8 /* Info.plist */,
+				BF3FB7B82654A67F00A790E1 /* Models */,
+				BF3FB7B72654A67600A790E1 /* Supporting Files */,
+				BF3FB7B62654A66E00A790E1 /* Views */,
+				BF3FB7B52654A66000A790E1 /* Presenters */,
 			);
 			path = "camp-diversidade";
 			sourceTree = "<group>";
@@ -125,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF554208264C10D800F978A8 /* LaunchScreen.storyboard in Resources */,
+				BF3FB7C22655B11900A790E1 /* QuizzItemCollectionViewCell.xib in Resources */,
 				BF554205264C10D800F978A8 /* Assets.xcassets in Resources */,
 				BF554203264C10D400F978A8 /* Main.storyboard in Resources */,
 			);
@@ -140,6 +211,7 @@
 				BF554200264C10D400F978A8 /* ViewController.swift in Sources */,
 				BF5541FC264C10D400F978A8 /* AppDelegate.swift in Sources */,
 				BF5541FE264C10D400F978A8 /* SceneDelegate.swift in Sources */,
+				BF3FB7C12655B11900A790E1 /* QuizzItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +360,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CV7BCTMKP;
-				INFOPLIST_FILE = "camp-diversidade/Info.plist";
+				INFOPLIST_FILE = "camp-diversidade/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +379,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CV7BCTMKP;
-				INFOPLIST_FILE = "camp-diversidade/Info.plist";
+				INFOPLIST_FILE = "camp-diversidade/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
