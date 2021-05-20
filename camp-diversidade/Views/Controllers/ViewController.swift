@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol QuizzPresenting: AnyObject {
+    func setQuizzes(_ quizzes: [Quizz])
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var categoriesScrollView: UIScrollView!
@@ -14,12 +18,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var quizzCollectionView: UICollectionView!
     @IBOutlet weak var submitButton: UIButton!
     
+    private let presenter = QuizzPresenter()
+    var quizzes: [Quizz]  = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCategoriesScrollView()
         configureSkipButton()
         configureQuizzCollectionView()
         configureSubmitButton()
+        presenter.attachView(self)
     }
 }
 
@@ -87,5 +95,13 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 //        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
 //    }
+}
+
+// MARK: - QuizzPresenting
+
+extension ViewController: QuizzPresenting {
+    func setQuizzes(_ quizzes: [Quizz]) {
+        self.quizzes = quizzes
+    }
 }
 

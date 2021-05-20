@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,53 +14,53 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="camp_diversidade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HsQ-7t-DKX">
-                                <rect key="frame" x="20" y="207.5" width="394" height="82"/>
+                                <rect key="frame" x="20" y="273" width="1004" height="137"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-iJ-9jU">
-                                        <rect key="frame" x="0.0" y="0.0" width="714" height="47"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="714" height="102"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLy-73-zga">
-                                                <rect key="frame" x="0.0" y="0.0" width="68" height="47"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="68" height="102"/>
                                                 <state key="normal" title="Curvatura">
                                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCT-w4-2rn">
-                                                <rect key="frame" x="110" y="0.0" width="31" height="47"/>
+                                                <rect key="frame" x="110" y="0.0" width="31" height="102"/>
                                                 <state key="normal" title="Tipo">
                                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYE-Uk-Vtk">
-                                                <rect key="frame" x="183" y="0.0" width="64" height="47"/>
+                                                <rect key="frame" x="183" y="0.0" width="64" height="102"/>
                                                 <state key="normal" title="Químicas">
                                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSm-zu-H1H">
-                                                <rect key="frame" x="289" y="0.0" width="103" height="47"/>
+                                                <rect key="frame" x="289" y="0.0" width="103" height="102"/>
                                                 <state key="normal" title="Características">
                                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmy-yi-pIx">
-                                                <rect key="frame" x="434" y="0.0" width="63" height="47"/>
+                                                <rect key="frame" x="434" y="0.0" width="63" height="102"/>
                                                 <state key="normal" title="Produtos">
                                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yP-Tu-c10">
-                                                <rect key="frame" x="539" y="0.0" width="68" height="47"/>
+                                                <rect key="frame" x="539" y="0.0" width="68" height="102"/>
                                                 <state key="normal" title="Curvatura">
                                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wu2-J9-0Nb">
-                                                <rect key="frame" x="649" y="0.0" width="65" height="47"/>
+                                                <rect key="frame" x="649" y="0.0" width="65" height="102"/>
                                                 <state key="normal" title="Objetivos">
                                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -68,7 +68,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAL-Iu-mdy">
-                                        <rect key="frame" x="0.0" y="47" width="744" height="35"/>
+                                        <rect key="frame" x="0.0" y="102" width="744" height="35"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gij-zq-Otr" userLabel="Horizontal View">
                                                 <rect key="frame" x="0.0" y="0.0" width="744" height="1"/>
@@ -101,10 +101,10 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="MUg-Ct-eef"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wX1-OA-Ak7" userLabel="Button View">
-                                <rect key="frame" x="0.0" y="780" width="414" height="82"/>
+                                <rect key="frame" x="0.0" y="1229.5" width="1024" height="136.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="es5-1g-VtY">
-                                        <rect key="frame" x="20" y="16" width="374" height="50"/>
+                                        <rect key="frame" x="20" y="43" width="984" height="50"/>
                                         <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.87058823529411766" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="g2Y-05-y5y"/>
@@ -112,7 +112,7 @@
                                         <state key="normal" title="Finalizar"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vmx-84-xhO" userLabel="Horizontal View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1"/>
                                         <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="C4E-Bi-I0g"/>
@@ -131,7 +131,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-tM-UOJ">
-                                <rect key="frame" x="20" y="289.5" width="374" height="490.5"/>
+                                <rect key="frame" x="20" y="410" width="984" height="819.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Iv3-cc-dIu">
                                     <size key="itemSize" width="50" height="50"/>
@@ -151,19 +151,19 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Paj-m9-znJ" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="44" width="414" height="163.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="273"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conhecendo a sua  cabeleira" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucL-yX-wkd">
-                                        <rect key="frame" x="20" y="82" width="207" height="81.5"/>
+                                        <rect key="frame" x="20" y="136.5" width="512" height="136.5"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxc-dU-Wr0">
-                                        <rect key="frame" x="20" y="0.0" width="371" height="82"/>
+                                        <rect key="frame" x="20" y="0.0" width="981" height="136.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GQ-z5-5Ht">
-                                                <rect key="frame" x="0.0" y="31" width="47" height="20"/>
+                                                <rect key="frame" x="0.0" y="58.5" width="47" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="47" id="TPG-VS-MkH"/>
                                                     <constraint firstAttribute="height" constant="20" id="e1x-QC-9ON"/>
@@ -174,7 +174,7 @@
                                                 </state>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZi-Fg-vic" userLabel="Skip Button">
-                                                <rect key="frame" x="294" y="23" width="77" height="36"/>
+                                                <rect key="frame" x="904" y="50.5" width="77" height="36"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T6-8H-AgV">
                                                         <rect key="frame" x="19" y="7.5" width="39" height="20.5"/>

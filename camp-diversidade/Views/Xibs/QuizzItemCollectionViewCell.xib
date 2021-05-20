@@ -58,6 +58,7 @@
             </constraints>
             <size key="customSize" width="105" height="115"/>
             <connections>
+                <outlet property="quizzAnswer" destination="19W-IQ-UBg" id="4aD-WY-W6m"/>
                 <outlet property="quizzItemCollectionViewCellBottomView" destination="UiL-td-BeQ" id="Hzn-Ec-5ui"/>
                 <outlet property="quizzItemCollectionViewCellView" destination="lp3-fY-6Ku" id="KF1-oP-TJ2"/>
             </connections>
