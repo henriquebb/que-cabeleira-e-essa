@@ -26,7 +26,8 @@ class ViewController: UIViewController {
     private var currentQuizz: Quizz?
     private var categoriesStatus: [Bool] = []
     private var lastCategoryIndexSelected: Int = -1
-    private var selectedItems: [Bool] = []
+    private var selectedItems: [(Bool, IndexPath)] = []
+    private var selectedQuizzAnswers = Dictionary<Int, [(Bool, IndexPath)]>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,12 +133,28 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? QuizzItemCollectionViewCell
-        if !selectedItems[indexPath.item] {
+        if !selectedItems[indexPath.item].0 {
             configureSelectedItem(cell)
         } else {
+            guard let quizz = selectedQuizzAnswers[lastCategoryIndexSelected] else {
+                return
+            }
+            collectionView.deselectItem(at: indexPath, animated: false)
+            selectedQuizzAnswers[lastCategoryIndexSelected] = quizz.filter { $0.1 != indexPath }
+            if selectedQuizzAnswers[lastCategoryIndexSelected]?.count == 0 {
+                selectedQuizzAnswers.removeValue(forKey: lastCategoryIndexSelected)
+            }
             configureDeselectedItem(cell)
+            selectedItems[indexPath.item].0.toggle()
+            checkQuizzIsAnswered()
+            return
         }
-        selectedItems[indexPath.item].toggle()
+        selectedItems[indexPath.item].0.toggle()
+        selectedItems[indexPath.item].1 = indexPath
+        var array = selectedQuizzAnswers[lastCategoryIndexSelected] ?? []
+        array.append((true, indexPath))
+        selectedQuizzAnswers[lastCategoryIndexSelected] = array
+        checkQuizzIsAnswered()
     }
     
     private func configureQuizzCollectionView() {
@@ -150,22 +167,27 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         currentQuizz = quizzes[0]
         reloadCollectionView()
         configureSelectedCategoryButton(label)
+        lastCategoryIndexSelected = 0
         categoriesStatus[0].toggle()
     }
     
     private func reloadCollectionView() {
-        currentQuizz?.answers.forEach { _ in selectedItems.append(false) }
-        selectedItems = Array(repeating: false, count: currentQuizz?.answers.count ?? 0)
+        currentQuizz?.answers.forEach { _ in selectedItems.append((false, IndexPath())) }
+        selectedItems.removeAll()
+        selectedItems = Array(repeating: (false, IndexPath()), count: currentQuizz?.answers.count ?? 0)
         quizzCollectionView.reloadData()
         quizzCollectionView.layoutIfNeeded()
     }
     
-    private func deselectAllItems() {
-        guard let selectedIndexes = quizzCollectionView.indexPathsForSelectedItems else {
+    private func selectItems(at index: Int) {
+        guard let answers = selectedQuizzAnswers[index] else {
             return
         }
-        for itemIndex in selectedIndexes {
-            quizzCollectionView.deselectItem(at: itemIndex, animated: false)
+        for (_,itemIndex) in answers {
+            quizzCollectionView.selectItem(at: itemIndex, animated: false, scrollPosition: .centeredHorizontally)
+            let cell = quizzCollectionView.cellForItem(at: itemIndex)
+            configureSelectedItem(cell as? QuizzItemCollectionViewCell)
+            selectedItems[itemIndex.item] = (true, itemIndex)
         }
     }
     
@@ -185,6 +207,16 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                                      forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                      withReuseIdentifier: name)
         return name
+    }
+    
+    func checkQuizzIsAnswered() {
+        if selectedQuizzAnswers.count == categoriesStatus.count {
+            submitButton.backgroundColor = UIColor(red: 0.316, green: 0.305, blue: 0.871, alpha: 1)
+            submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        } else {
+            submitButton.backgroundColor = UIColor(red: 0.959, green: 0.958, blue: 1, alpha: 1)
+            submitButton.tintColor = UIColor(red: 0.316, green: 0.305, blue: 0.871, alpha: 1)
+        }
     }
 }
 
@@ -212,6 +244,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         cell?.quizzAnswer.textColor = color
         cell?.quizzAnswer.font = UIFont.systemFont(ofSize: cell?.quizzAnswer.font.pointSize ?? 0, weight: .bold)
         cell?.quizzItemCollectionViewCellView.backgroundColor = color
+        cell?.layoutIfNeeded()
     }
     
     private func configureDeselectedItem(_ cell:  QuizzItemCollectionViewCell?) {
@@ -246,13 +279,11 @@ extension ViewController {
             let label = view as? UILabel
             let location = sender.location(in: view)
             if (view.hitTest(location, with: nil) as? UILabel) != nil {
-                if lastCategoryIndexSelected != -1 {
-                    let lastView = categoriesStackView.subviews[lastCategoryIndexSelected] as? UILabel
-                    configureDeselectedCategoryButton(lastView)
-                }
+                let lastView = categoriesStackView.subviews[lastCategoryIndexSelected] as? UILabel
+                configureDeselectedCategoryButton(lastView)
                 currentQuizz = quizzes[index]
-                deselectAllItems()
                 reloadCollectionView()
+                selectItems(at: index)
                 configureSelectedCategoryButton(label)
                 categoriesStatus[index].toggle()
                 lastCategoryIndexSelected = index
