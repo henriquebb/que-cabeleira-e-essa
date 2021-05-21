@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -21,17 +21,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="105" height="115"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UiL-td-BeQ">
-                                <rect key="frame" x="4" y="73" width="97" height="38"/>
+                                <rect key="frame" x="3" y="74" width="99" height="38"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19W-IQ-UBg">
-                                        <rect key="frame" x="33" y="11.5" width="31" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="19W-IQ-UBg">
+                                        <rect key="frame" x="0.0" y="4.5" width="99" height="29"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="This is a long sentence">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" metaFont="cellTitle"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="19W-IQ-UBg" firstAttribute="leading" secondItem="UiL-td-BeQ" secondAttribute="leading" id="64j-M2-dKl"/>
+                                    <constraint firstAttribute="trailing" secondItem="19W-IQ-UBg" secondAttribute="trailing" id="6ff-kz-Lgr"/>
                                     <constraint firstItem="19W-IQ-UBg" firstAttribute="centerY" secondItem="UiL-td-BeQ" secondAttribute="centerY" id="Phw-Bv-jv3"/>
                                     <constraint firstAttribute="height" constant="38" id="ZNn-3F-JwQ"/>
                                     <constraint firstItem="19W-IQ-UBg" firstAttribute="centerX" secondItem="UiL-td-BeQ" secondAttribute="centerX" id="ZV6-az-xQn"/>
@@ -40,10 +49,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99215686274509807" green="0.86274509803921573" blue="0.83529411764705885" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="UiL-td-BeQ" secondAttribute="bottom" constant="4" id="9mv-fk-8Qw"/>
-                            <constraint firstItem="UiL-td-BeQ" firstAttribute="leading" secondItem="lp3-fY-6Ku" secondAttribute="leading" constant="4" id="DgX-sA-WX8"/>
+                            <constraint firstAttribute="bottom" secondItem="UiL-td-BeQ" secondAttribute="bottom" constant="3" id="9mv-fk-8Qw"/>
+                            <constraint firstItem="UiL-td-BeQ" firstAttribute="leading" secondItem="lp3-fY-6Ku" secondAttribute="leading" constant="3" id="DgX-sA-WX8"/>
                             <constraint firstAttribute="width" constant="105" id="bFd-pg-FtE"/>
-                            <constraint firstAttribute="trailing" secondItem="UiL-td-BeQ" secondAttribute="trailing" constant="4" id="d8F-eI-glS"/>
+                            <constraint firstAttribute="trailing" secondItem="UiL-td-BeQ" secondAttribute="trailing" constant="3" id="d8F-eI-glS"/>
                             <constraint firstAttribute="height" constant="115" id="tqn-sH-cMB"/>
                         </constraints>
                     </view>
@@ -51,10 +60,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="lp3-fY-6Ku" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0fI-NI-rGD"/>
-                <constraint firstAttribute="bottom" secondItem="lp3-fY-6Ku" secondAttribute="bottom" id="JtO-Lo-vHi"/>
-                <constraint firstItem="lp3-fY-6Ku" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="OMq-ds-lDv"/>
-                <constraint firstAttribute="trailing" secondItem="lp3-fY-6Ku" secondAttribute="trailing" id="dDN-vZ-u2o"/>
+                <constraint firstItem="lp3-fY-6Ku" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" priority="750" id="0fI-NI-rGD"/>
+                <constraint firstAttribute="bottom" secondItem="lp3-fY-6Ku" secondAttribute="bottom" priority="750" id="JtO-Lo-vHi"/>
+                <constraint firstItem="lp3-fY-6Ku" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" priority="750" id="OMq-ds-lDv"/>
+                <constraint firstAttribute="trailing" secondItem="lp3-fY-6Ku" secondAttribute="trailing" priority="750" id="dDN-vZ-u2o"/>
             </constraints>
             <size key="customSize" width="105" height="115"/>
             <connections>

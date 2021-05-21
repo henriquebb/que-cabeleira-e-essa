@@ -26,6 +26,15 @@ class QuizzItemCollectionViewCell: UICollectionViewCell {
 extension QuizzItemCollectionViewCell {
     func configureQuizzItemCollectionViewCellView() {
         quizzItemCollectionViewCellView.layer.cornerRadius = 8
+        let shadowPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 109, height: 119), cornerRadius: 8)
+        self.layer.shadowPath = shadowPath.cgPath
+        self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 28
+        self.layer.shadowOffset = .zero
+        self.layer.masksToBounds = false
+        self.clipsToBounds = false
+        
     }
     
     func configureQuizzItemCollectionViewCellBottomView() {

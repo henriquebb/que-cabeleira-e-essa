@@ -8,7 +8,7 @@
 import Foundation
 
 protocol QuizzDelegate: AnyObject {
-    func addQuizz()
+    func getQuizzes()
 }
 
 class QuizzPresenter {
@@ -23,9 +23,12 @@ class QuizzPresenter {
     }
 }
 
+// MARK: - QuizzDelegate methods
+
 extension QuizzPresenter: QuizzDelegate {
-    func addQuizz() {
+    func getQuizzes() {
         let quizzLibrary = QuizzLibrary()
+        quizzLibrary.addDummyQuizzes()
         view?.setQuizzes(quizzLibrary.quizzes)
     }
 }

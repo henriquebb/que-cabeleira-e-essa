@@ -13,7 +13,6 @@ class QuizzLibrary {
     
     init() {
         quizzes = []
-        addDummyQuizzes()
     }
     
     func addDummyQuizzes() {
