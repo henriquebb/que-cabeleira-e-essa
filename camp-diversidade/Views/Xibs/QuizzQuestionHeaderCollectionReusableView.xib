@@ -13,8 +13,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="WP5-vS-8N1">
-                    <rect key="frame" x="0.0" y="16" width="320" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WP5-vS-8N1">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                     <color key="highlightedColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
@@ -26,8 +26,9 @@
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <constraints>
                 <constraint firstItem="WP5-vS-8N1" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="9ly-6W-UHK"/>
-                <constraint firstItem="WP5-vS-8N1" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="16" id="IQu-04-NwH"/>
+                <constraint firstItem="WP5-vS-8N1" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="IQu-04-NwH"/>
                 <constraint firstItem="WP5-vS-8N1" firstAttribute="trailing" secondItem="U6b-Vx-4bR" secondAttribute="trailing" id="Oxc-UH-u3y"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="WP5-vS-8N1" secondAttribute="bottom" constant="16" id="XC0-wH-dzQ"/>
             </constraints>
             <connections>
                 <outlet property="quizzQuestion" destination="WP5-vS-8N1" id="5LI-Jq-JgK"/>

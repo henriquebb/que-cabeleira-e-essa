@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var quizzCollectionView: UICollectionView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var submitButtonView: UIView!
-    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var categoriesScrollViewLeadingConstraint: NSLayoutConstraint!
     
     private let presenter = QuizzPresenter()
     var quizzes: [Quizz]  = []
@@ -32,6 +32,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        configureButtonView()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { [self] _ in
+            
+            self.quizzCollectionView.contentInset = UIEdgeInsets(top: 0, left: self.view.safeAreaInsets.left + 20, bottom: 0, right: self.view.safeAreaInsets.left + 20)
+            configureButtonView()
+        }
     }
 }
 
@@ -46,7 +59,6 @@ extension ViewController {
         configureSkipButton()
         configureQuizzCollectionView()
         configureSubmitButton()
-        configureButtonView()
     }
 }
 
@@ -88,8 +100,8 @@ extension ViewController {
         submitButtonView.layer.shadowOpacity = 1
         submitButtonView.layer.shadowRadius = 18
         submitButtonView.layer.shadowOffset = CGSize(width: 0, height: -5)
-        submitButtonView.layer.bounds = submitButtonView.bounds
-        submitButtonView.layer.position = submitButtonView.center
+        //submitButtonView.layer.bounds = submitButtonView.bounds
+        //submitButtonView.layer.position = submitButtonView.center
         self.view.bringSubviewToFront(submitButtonView)
     }
 }
@@ -110,7 +122,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 60)
+        return CGSize(width: UIScreen.main.bounds.width, height: 70)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -161,7 +173,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         quizzCollectionView.delegate = self
         quizzCollectionView.dataSource = self
         quizzCollectionView.showsVerticalScrollIndicator = false
-        quizzCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        quizzCollectionView.contentInset = UIEdgeInsets(top: 0, left: categoriesScrollViewLeadingConstraint.constant, bottom: 0, right: categoriesScrollViewLeadingConstraint.constant)
         let view = categoriesStackView.subviews.first
         let label = view as? UILabel
         currentQuizz = quizzes[0]
