@@ -112,6 +112,8 @@ extension OnboardingViewController {
     }
     
     func configureSkipButton() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(skipQuizz))
+        skipButton.addGestureRecognizer(tap)
         skipButton.layer.borderColor = UIColor(red: 1, green: 0.754, blue: 0.7, alpha: 1).cgColor
         let label = skipButton.subviews.first as? UILabel
         label?.textColor = UIColor(red: 1, green: 0.918, blue: 0.9, alpha: 1)
@@ -146,6 +148,10 @@ extension OnboardingViewController: UIScrollViewDelegate {
 extension OnboardingViewController {
     @objc private func viewButtonTapped() {
         presenter.pushToQuizz()
+    }
+    
+    @objc private func skipQuizz() {
+        presenter.coordinator?.showTabBar()
     }
 }
 

@@ -34,4 +34,12 @@ class AppCoordinator: Coordinator {
         navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(quizzVC, animated: true)
     }
+    
+    func showTabBar() {
+        guard let tabBarVC = storyboard?.instantiateViewController(identifier: "TabBarViewControllerID") as? TabBarViewController else {
+            return
+        }
+        navigationController.navigationBar.isHidden = true
+        navigationController.pushViewController(tabBarVC, animated: true)
+    }
 }

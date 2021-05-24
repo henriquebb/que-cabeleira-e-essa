@@ -75,6 +75,8 @@ extension QuizzViewController {
 
 extension QuizzViewController {
     private func configureSkipButton() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(skipQuizz))
+        skipButton.addGestureRecognizer(tap)
         skipButton.layer.borderColor = UIColor(red: 0.776, green: 0.769, blue: 1, alpha: 1).cgColor
         let label = skipButton.subviews.first as? UILabel
         label?.textColor = UIColor(red: 0.776, green: 0.769, blue: 1, alpha: 1)
@@ -225,6 +227,7 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if selectedQuizzAnswers.count == categoriesStatus.count {
             submitButton.backgroundColor = UIColor(red: 0.316, green: 0.305, blue: 0.871, alpha: 1)
             submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            presenter.coordinator?.showTabBar()
         } else {
             submitButton.backgroundColor = UIColor(red: 0.959, green: 0.958, blue: 1, alpha: 1)
             submitButton.tintColor = UIColor(red: 0.316, green: 0.305, blue: 0.871, alpha: 1)
@@ -279,7 +282,7 @@ extension QuizzViewController: QuizzPresenting {
     }
 }
 
-// MARK: - StackView Touch
+// MARK: - Touch
 
 extension QuizzViewController {
     private func configureStackViewTouch() {
@@ -305,6 +308,10 @@ extension QuizzViewController {
                 lastCategoryIndexSelected = index
             }
         }
+    }
+    
+    @objc private func skipQuizz() {
+        presenter.coordinator?.showTabBar()
     }
 }
 

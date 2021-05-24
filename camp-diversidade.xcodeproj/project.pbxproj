@@ -27,6 +27,8 @@
 		BF7E8604265B11FE0078B5C6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8603265B11FE0078B5C6 /* Coordinator.swift */; };
 		BF7E860A265BC50F0078B5C6 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8609265BC50F0078B5C6 /* OnboardingPresenter.swift */; };
 		BF7E860D265BC9920078B5C6 /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E860C265BC9920078B5C6 /* SkipButton.swift */; };
+		BF7E8610265BE3080078B5C6 /* RecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E860F265BE3080078B5C6 /* RecommendationViewController.swift */; };
+		BF7E8613265BE5CA0078B5C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8612265BE5CA0078B5C6 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		BF7E8603265B11FE0078B5C6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BF7E8609265BC50F0078B5C6 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		BF7E860C265BC9920078B5C6 /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
+		BF7E860F265BE3080078B5C6 /* RecommendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationViewController.swift; sourceTree = "<group>"; };
+		BF7E8612265BE5CA0078B5C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 			children = (
 				BF5541FF264C10D400F978A8 /* QuizzViewController.swift */,
 				BF3FB7F526596D2700A790E1 /* OnboardingViewController.swift */,
+				BF7E860F265BE3080078B5C6 /* RecommendationViewController.swift */,
+				BF7E8612265BE5CA0078B5C6 /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7E8613265BE5CA0078B5C6 /* TabBarViewController.swift in Sources */,
 				BF7E8601265B11F50078B5C6 /* AppCoordinator.swift in Sources */,
 				BF554200264C10D400F978A8 /* QuizzViewController.swift in Sources */,
 				BF3FB7D12655EB0500A790E1 /* Quizz.swift in Sources */,
@@ -282,6 +289,7 @@
 				BF3FB7C12655B11900A790E1 /* QuizzItemCollectionViewCell.swift in Sources */,
 				BF7E8604265B11FE0078B5C6 /* Coordinator.swift in Sources */,
 				BF3FB7F626596D2700A790E1 /* OnboardingViewController.swift in Sources */,
+				BF7E8610265BE3080078B5C6 /* RecommendationViewController.swift in Sources */,
 				BF3FB7CD2655EAF100A790E1 /* QuizzLibrary.swift in Sources */,
 				BF3FB7D72656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift in Sources */,
 			);
