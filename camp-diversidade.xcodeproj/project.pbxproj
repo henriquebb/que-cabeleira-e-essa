@@ -14,12 +14,19 @@
 		BF3FB7D12655EB0500A790E1 /* Quizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FB7D02655EB0500A790E1 /* Quizz.swift */; };
 		BF3FB7D72656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FB7D52656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift */; };
 		BF3FB7D82656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF3FB7D62656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.xib */; };
+		BF3FB7F32659663C00A790E1 /* OnboardingWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FB7F22659663C00A790E1 /* OnboardingWelcomeView.swift */; };
+		BF3FB7F626596D2700A790E1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FB7F526596D2700A790E1 /* OnboardingViewController.swift */; };
+		BF3FB7FB265983CE00A790E1 /* FugazOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF3FB7F8265983B200A790E1 /* FugazOne-Regular.ttf */; };
 		BF5541FC264C10D400F978A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FB264C10D400F978A8 /* AppDelegate.swift */; };
 		BF5541FE264C10D400F978A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FD264C10D400F978A8 /* SceneDelegate.swift */; };
-		BF554200264C10D400F978A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FF264C10D400F978A8 /* ViewController.swift */; };
+		BF554200264C10D400F978A8 /* QuizzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FF264C10D400F978A8 /* QuizzViewController.swift */; };
 		BF554203264C10D400F978A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF554201264C10D400F978A8 /* Main.storyboard */; };
 		BF554205264C10D800F978A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF554204264C10D800F978A8 /* Assets.xcassets */; };
 		BF554208264C10D800F978A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF554206264C10D800F978A8 /* LaunchScreen.storyboard */; };
+		BF7E8601265B11F50078B5C6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8600265B11F50078B5C6 /* AppCoordinator.swift */; };
+		BF7E8604265B11FE0078B5C6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8603265B11FE0078B5C6 /* Coordinator.swift */; };
+		BF7E860A265BC50F0078B5C6 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8609265BC50F0078B5C6 /* OnboardingPresenter.swift */; };
+		BF7E860D265BC9920078B5C6 /* SkipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E860C265BC9920078B5C6 /* SkipButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,14 +37,21 @@
 		BF3FB7D02655EB0500A790E1 /* Quizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizz.swift; sourceTree = "<group>"; };
 		BF3FB7D52656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzQuestionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		BF3FB7D62656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizzQuestionHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		BF3FB7F22659663C00A790E1 /* OnboardingWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWelcomeView.swift; sourceTree = "<group>"; };
+		BF3FB7F526596D2700A790E1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		BF3FB7F8265983B200A790E1 /* FugazOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FugazOne-Regular.ttf"; sourceTree = "<group>"; };
 		BF5541F8264C10D400F978A8 /* camp-diversidade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "camp-diversidade.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5541FB264C10D400F978A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF5541FD264C10D400F978A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF5541FF264C10D400F978A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF5541FF264C10D400F978A8 /* QuizzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzViewController.swift; sourceTree = "<group>"; };
 		BF554202264C10D400F978A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF554204264C10D800F978A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF554207264C10D800F978A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF554209264C10D800F978A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF7E8600265B11F50078B5C6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		BF7E8603265B11FE0078B5C6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BF7E8609265BC50F0078B5C6 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		BF7E860C265BC9920078B5C6 /* SkipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3FB7C72655E90B00A790E1 /* QuizzPresenter.swift */,
+				BF7E8609265BC50F0078B5C6 /* OnboardingPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -99,7 +114,8 @@
 		BF3FB7BA2654A6C100A790E1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF5541FF264C10D400F978A8 /* ViewController.swift */,
+				BF5541FF264C10D400F978A8 /* QuizzViewController.swift */,
+				BF3FB7F526596D2700A790E1 /* OnboardingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +135,8 @@
 				BF3FB7C02655B11900A790E1 /* QuizzItemCollectionViewCell.xib */,
 				BF3FB7D52656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift */,
 				BF3FB7D62656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.xib */,
+				BF3FB7F22659663C00A790E1 /* OnboardingWelcomeView.swift */,
+				BF7E860C265BC9920078B5C6 /* SkipButton.swift */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -131,9 +149,19 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		BF3FB7EB2659589200A790E1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BF3FB7F8265983B200A790E1 /* FugazOne-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		BF5541EF264C10D400F978A8 = {
 			isa = PBXGroup;
 			children = (
+				BF7E85FF265B11E60078B5C6 /* Coordinator */,
+				BF3FB7EB2659589200A790E1 /* Fonts */,
 				BF3FB7B92654A69B00A790E1 /* App Delegates */,
 				BF5541FA264C10D400F978A8 /* camp-diversidade */,
 				BF5541F9264C10D400F978A8 /* Products */,
@@ -158,6 +186,15 @@
 				BF3FB7B52654A66000A790E1 /* Presenters */,
 			);
 			path = "camp-diversidade";
+			sourceTree = "<group>";
+		};
+		BF7E85FF265B11E60078B5C6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BF7E8600265B11F50078B5C6 /* AppCoordinator.swift */,
+				BF7E8603265B11FE0078B5C6 /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +258,7 @@
 				BF3FB7C22655B11900A790E1 /* QuizzItemCollectionViewCell.xib in Resources */,
 				BF554205264C10D800F978A8 /* Assets.xcassets in Resources */,
 				BF3FB7D82656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.xib in Resources */,
+				BF3FB7FB265983CE00A790E1 /* FugazOne-Regular.ttf in Resources */,
 				BF554203264C10D400F978A8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,12 +270,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF554200264C10D400F978A8 /* ViewController.swift in Sources */,
+				BF7E8601265B11F50078B5C6 /* AppCoordinator.swift in Sources */,
+				BF554200264C10D400F978A8 /* QuizzViewController.swift in Sources */,
 				BF3FB7D12655EB0500A790E1 /* Quizz.swift in Sources */,
 				BF5541FC264C10D400F978A8 /* AppDelegate.swift in Sources */,
 				BF5541FE264C10D400F978A8 /* SceneDelegate.swift in Sources */,
+				BF3FB7F32659663C00A790E1 /* OnboardingWelcomeView.swift in Sources */,
+				BF7E860D265BC9920078B5C6 /* SkipButton.swift in Sources */,
 				BF3FB7C82655E90B00A790E1 /* QuizzPresenter.swift in Sources */,
+				BF7E860A265BC50F0078B5C6 /* OnboardingPresenter.swift in Sources */,
 				BF3FB7C12655B11900A790E1 /* QuizzItemCollectionViewCell.swift in Sources */,
+				BF7E8604265B11FE0078B5C6 /* Coordinator.swift in Sources */,
+				BF3FB7F626596D2700A790E1 /* OnboardingViewController.swift in Sources */,
 				BF3FB7CD2655EAF100A790E1 /* QuizzLibrary.swift in Sources */,
 				BF3FB7D72656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift in Sources */,
 			);

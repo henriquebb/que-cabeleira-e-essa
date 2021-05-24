@@ -13,6 +13,7 @@ protocol QuizzDelegate: AnyObject {
 
 class QuizzPresenter {
     weak var view: QuizzPresenting?
+    public var coordinator: AppCoordinator?
     
     init() {
         //load

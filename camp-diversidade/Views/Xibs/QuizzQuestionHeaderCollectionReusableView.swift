@@ -15,5 +15,4 @@ class QuizzQuestionHeaderCollectionReusableView: UICollectionReusableView {
         super.awakeFromNib()
         // Initialization code
     }
-    
 }

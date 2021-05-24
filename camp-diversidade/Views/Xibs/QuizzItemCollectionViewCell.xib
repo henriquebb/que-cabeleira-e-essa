@@ -24,12 +24,12 @@
                                 <rect key="frame" x="3" y="74" width="99" height="38"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="19W-IQ-UBg">
-                                        <rect key="frame" x="0.0" y="5.5" width="99" height="27"/>
+                                        <rect key="frame" x="0.0" y="4.5" width="99" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="This is a long sentence">
                                                 <attributes>
                                                     <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="12" name=".SFNS-Regular"/>
+                                                    <font key="NSFont" metaFont="cellTitle"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>

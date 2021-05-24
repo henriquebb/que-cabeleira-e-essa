@@ -11,17 +11,17 @@ protocol QuizzPresenting: AnyObject {
     func setQuizzes(_ quizzes: [Quizz])
 }
 
-class ViewController: UIViewController {
+class QuizzViewController: UIViewController {
 
     @IBOutlet weak var categoriesScrollView: UIScrollView!
     @IBOutlet weak var categoriesStackView: UIStackView!
-    @IBOutlet weak var skipButton: UIView!
     @IBOutlet weak var quizzCollectionView: UICollectionView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var submitButtonView: UIView!
     @IBOutlet weak var categoriesScrollViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var skipButton: SkipButton!
     
-    private let presenter = QuizzPresenter()
+    public let presenter = QuizzPresenter()
     var quizzes: [Quizz]  = []
     private var currentQuizz: Quizz?
     private var categoriesStatus: [Bool] = []
@@ -29,28 +29,29 @@ class ViewController: UIViewController {
     private var selectedItems: [(Bool, IndexPath)] = []
     private var selectedQuizzAnswers = Dictionary<Int, [(Bool, IndexPath)]>()
     
+// MARK: - Life Cycle of App
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
     
     override func viewDidLayoutSubviews() {
-        configureButtonView()
+        configureButtonViewShadow()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { [self] _ in
-            
-            self.quizzCollectionView.contentInset = UIEdgeInsets(top: 0, left: self.view.safeAreaInsets.left + 20, bottom: 0, right: self.view.safeAreaInsets.left + 20)
-            configureButtonView()
+            addPaddingToCollectionView()
+            configureButtonViewShadow()
         }
     }
 }
 
 // MARK: - Setup
 
-extension ViewController {
+extension QuizzViewController {
     private func setup() {
         presenter.attachView(self)
         presenter.getQuizzes()
@@ -64,7 +65,7 @@ extension ViewController {
 
 // MARK: - ScrollView
 
-extension ViewController {
+extension QuizzViewController {
     private func configureCategoriesScrollView() {
         categoriesScrollView.showsHorizontalScrollIndicator = false
     }
@@ -72,19 +73,18 @@ extension ViewController {
 
 // MARK: - Button
 
-extension ViewController {
+extension QuizzViewController {
     private func configureSkipButton() {
-        skipButton.backgroundColor = .clear
-        skipButton.layer.borderWidth = 3
-        skipButton.layer.cornerRadius = 19
-        skipButton.layer.borderColor = UIColor(red: 0.775, green: 0.771, blue: 1, alpha: 1).cgColor
+        skipButton.layer.borderColor = UIColor(red: 0.776, green: 0.769, blue: 1, alpha: 1).cgColor
+        let label = skipButton.subviews.first as? UILabel
+        label?.textColor = UIColor(red: 0.776, green: 0.769, blue: 1, alpha: 1)
     }
     
     private func configureSubmitButton() {
         submitButton.layer.cornerRadius = 8
     }
     
-    private func configureButtonView() {
+    private func configureButtonViewShadow() {
         
         submitButtonView.clipsToBounds = false
         submitButtonView.layer.masksToBounds = false
@@ -108,7 +108,7 @@ extension ViewController {
 
 // MARK: - Quizz Collection View
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentQuizz?.answers.count ?? 0
     }
@@ -173,7 +173,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         quizzCollectionView.delegate = self
         quizzCollectionView.dataSource = self
         quizzCollectionView.showsVerticalScrollIndicator = false
-        quizzCollectionView.contentInset = UIEdgeInsets(top: 0, left: categoriesScrollViewLeadingConstraint.constant, bottom: 0, right: categoriesScrollViewLeadingConstraint.constant)
+        addPaddingToCollectionView()
         let view = categoriesStackView.subviews.first
         let label = view as? UILabel
         currentQuizz = quizzes[0]
@@ -234,7 +234,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
 // MARK: - Quizz Collection View UI
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension QuizzViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
@@ -265,11 +265,15 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         cell?.quizzAnswer.font = UIFont.systemFont(ofSize: cell?.quizzAnswer.font.pointSize ?? 0, weight: .regular)
         cell?.quizzItemCollectionViewCellView.backgroundColor = color
     }
+    
+    private func addPaddingToCollectionView() {
+        self.quizzCollectionView.contentInset = UIEdgeInsets(top: 0, left: self.view.safeAreaInsets.left + 20, bottom: 0, right: self.view.safeAreaInsets.left + 20)
+    }
 }
 
 // MARK: - QuizzPresenting
 
-extension ViewController: QuizzPresenting {
+extension QuizzViewController: QuizzPresenting {
     func setQuizzes(_ quizzes: [Quizz]) {
         self.quizzes = quizzes
     }
@@ -277,7 +281,7 @@ extension ViewController: QuizzPresenting {
 
 // MARK: - StackView Touch
 
-extension ViewController {
+extension QuizzViewController {
     private func configureStackViewTouch() {
         let touch = UITapGestureRecognizer(target: self, action: #selector(handleTouch(_:)))
         categoriesStackView.addGestureRecognizer(touch)
