@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RecommendationPresenting: AnyObject {
-    
+    func setTips(tips: [Tip])
 }
 
 class RecommendationViewController: UIViewController {
@@ -24,6 +24,7 @@ class RecommendationViewController: UIViewController {
     
     var recommendationLibrary: RecommendationLibrary?
     var recommendations: [Recommendation] = []
+    var tips: [Tip] = []
     var recommendationPresenter = RecommendationPresenter()
     var lastCategoryIndexSelected = -1
     var lastFilterIndexSelected = -1
@@ -81,15 +82,19 @@ extension RecommendationViewController {
     }
     
     func setupCells(cell: RecommendationTableViewCell, index: Int) {
-        cell.productImage.image = recommendations[index].image
+        //cell.productImage.image = recommendations[index].image
         cell.titleLabel.text = recommendations[index].title
         cell.descriptionLabel.text = recommendations[index].description
         cell.typeLabel.text = recommendations[index].type
         cell.selectionStyle = .none
         cell.typeView.isHidden = false
-        if lastCategoryIndexSelected == 1 {
-            cell.typeView.isHidden = true
-        }
+    }
+    
+    func setupTipsCells(cell: RecommendationTableViewCell, index: Int) {
+        cell.titleLabel.text = tips[index].titulo
+        cell.descriptionLabel.text = tips[index].descricao
+        cell.typeView.isHidden = true
+        cell.imageView?.image = nil
     }
     
     func registerTableViewCells() -> String {
@@ -108,6 +113,9 @@ extension RecommendationViewController {
 
 extension RecommendationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if lastCategoryIndexSelected == ProductCategories.tips.rawValue {
+            return tips.count
+        }
         return recommendations.count
     }
     
@@ -117,7 +125,11 @@ extension RecommendationViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: nibName) as? RecommendationTableViewCell else {
             return RecommendationTableViewCell()
         }
-        setupCells(cell: cell, index: indexPath.item)
+        if lastCategoryIndexSelected == ProductCategories.tips.rawValue {
+            setupTipsCells(cell: cell, index: indexPath.item)
+        } else {
+            setupCells(cell: cell, index: indexPath.item)
+        }
         return cell
     }
     
@@ -174,10 +186,8 @@ extension RecommendationViewController {
                 let lastView = categoriesStackView.subviews[lastCategoryIndexSelected] as? UILabel
                 QuizzViewController.configureDeselectedCategoryButton(lastView)
                 QuizzViewController.configureSelectedCategoryButton(label)
-                if lastCategoryIndexSelected != index {
-                    lastCategoryIndexSelected = index
-                    recommendationTableView.reloadData()
-                }
+                checkReload(index: index)
+                checkTips(index: index)
                 //let lastView = categoriesStackView.subviews[lastCategoryIndexSelected] as? UILabel
                 //categoriesStatus[index].toggle()
             }
@@ -188,7 +198,10 @@ extension RecommendationViewController {
 //MARK: - RecommendationPresenting
 
 extension RecommendationViewController: RecommendationPresenting {
-    
+    func setTips(tips: [Tip]) {
+        self.tips = tips
+        recommendationTableView.reloadData()
+    }
 }
 
 //MARK: - UI
@@ -217,6 +230,23 @@ extension RecommendationViewController {
             if index == 0 {
                 styleSelectedFilter(view: view)
             }
+        }
+    }
+}
+
+//MARK: - Presenter Networking
+
+extension RecommendationViewController {
+    func checkTips(index: Int) {
+        if index == ProductCategories.tips.rawValue {
+            recommendationPresenter.getTips()
+        }
+    }
+    
+    func checkReload(index: Int) {
+        if lastCategoryIndexSelected != index {
+            lastCategoryIndexSelected = index
+            recommendationTableView.reloadData()
         }
     }
 }

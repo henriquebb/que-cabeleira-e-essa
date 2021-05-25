@@ -86,4 +86,13 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(productVC, animated: true)
         //navigationController.present(productVC, animated: true, completion: nil)
     }
+    
+    func instantiateResultsVC() {
+        guard let resultsVC = storyboard?.instantiateViewController(identifier: "ResultsViewControllerID") as? ResultsViewController else {
+            return
+        }
+        navigationController.popViewController(animated: false)
+        resultsVC.resultsPresenter.coordinator = self
+        navigationController.pushViewController(viewController: resultsVC, animated: true, completion: nil)
+    }
 }

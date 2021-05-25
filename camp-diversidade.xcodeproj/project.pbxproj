@@ -36,6 +36,18 @@
 		BF7E8632265C8EB70078B5C6 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8631265C8EB70078B5C6 /* ProductDetailsViewController.swift */; };
 		BF8995C7265D7C0500A0FA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF554204264C10D800F978A8 /* Assets.xcassets */; };
 		BF8995CB265D80EB00A0FA34 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995CA265D80EB00A0FA34 /* Categories.swift */; };
+		BF8995D5265D851A00A0FA34 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995D4265D851A00A0FA34 /* Networking.swift */; };
+		BF8995D8265D855400A0FA34 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995D7265D855400A0FA34 /* Paths.swift */; };
+		BF8995DB265D856900A0FA34 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995DA265D856900A0FA34 /* Endpoint.swift */; };
+		BF8995DE265D892800A0FA34 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995DD265D892800A0FA34 /* UserPreferences.swift */; };
+		BF8995E1265D8AD600A0FA34 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995E0265D8AD600A0FA34 /* UserID.swift */; };
+		BF8995E4265D8C8C00A0FA34 /* QuizzAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995E3265D8C8C00A0FA34 /* QuizzAnswers.swift */; };
+		BF8995E7265D944B00A0FA34 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995E6265D944B00A0FA34 /* ResultsViewController.swift */; };
+		BF8995EA265D945D00A0FA34 /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995E9265D945D00A0FA34 /* ResultsPresenter.swift */; };
+		BF8995ED265DA82900A0FA34 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995EC265DA82900A0FA34 /* Tip.swift */; };
+		BF8995F0265DA94200A0FA34 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995EF265DA94200A0FA34 /* Tips.swift */; };
+		BF8995F3265DA98D00A0FA34 /* TipsMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995F2265DA98D00A0FA34 /* TipsMetadata.swift */; };
+		BF8995F6265DAD9600A0FA34 /* ProductCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995F5265DAD9600A0FA34 /* ProductCategories.swift */; };
 		BFBE8841265C9A9F002EAB03 /* RecommendationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */; };
 		BFBE8844265D2B93002EAB03 /* ButtonViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8843265D2B93002EAB03 /* ButtonViewShadow.swift */; };
 		BFBE8849265D5601002EAB03 /* CategoriesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8848265D5601002EAB03 /* CategoriesScrollView.swift */; };
@@ -73,6 +85,18 @@
 		BF7E8623265C3CFC0078B5C6 /* RecommendationLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationLibrary.swift; sourceTree = "<group>"; };
 		BF7E8631265C8EB70078B5C6 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		BF8995CA265D80EB00A0FA34 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		BF8995D4265D851A00A0FA34 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		BF8995D7265D855400A0FA34 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		BF8995DA265D856900A0FA34 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		BF8995DD265D892800A0FA34 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		BF8995E0265D8AD600A0FA34 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
+		BF8995E3265D8C8C00A0FA34 /* QuizzAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzAnswers.swift; sourceTree = "<group>"; };
+		BF8995E6265D944B00A0FA34 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		BF8995E9265D945D00A0FA34 /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
+		BF8995EC265DA82900A0FA34 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		BF8995EF265DA94200A0FA34 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
+		BF8995F2265DA98D00A0FA34 /* TipsMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMetadata.swift; sourceTree = "<group>"; };
+		BF8995F5265DAD9600A0FA34 /* ProductCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategories.swift; sourceTree = "<group>"; };
 		BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationPresenter.swift; sourceTree = "<group>"; };
 		BFBE8843265D2B93002EAB03 /* ButtonViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewShadow.swift; sourceTree = "<group>"; };
 		BFBE8848265D5601002EAB03 /* CategoriesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesScrollView.swift; sourceTree = "<group>"; };
@@ -96,6 +120,7 @@
 				BF7E8609265BC50F0078B5C6 /* OnboardingPresenter.swift */,
 				BF7E8618265C15580078B5C6 /* TabBarPresenter.swift */,
 				BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */,
+				BF8995E9265D945D00A0FA34 /* ResultsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -126,6 +151,16 @@
 				BF3FB7D02655EB0500A790E1 /* Quizz.swift */,
 				BF7E8620265C3C810078B5C6 /* Recommendation.swift */,
 				BF8995CA265D80EB00A0FA34 /* Categories.swift */,
+				BF8995D4265D851A00A0FA34 /* Networking.swift */,
+				BF8995D7265D855400A0FA34 /* Paths.swift */,
+				BF8995DA265D856900A0FA34 /* Endpoint.swift */,
+				BF8995DD265D892800A0FA34 /* UserPreferences.swift */,
+				BF8995E0265D8AD600A0FA34 /* UserID.swift */,
+				BF8995E3265D8C8C00A0FA34 /* QuizzAnswers.swift */,
+				BF8995EC265DA82900A0FA34 /* Tip.swift */,
+				BF8995EF265DA94200A0FA34 /* Tips.swift */,
+				BF8995F2265DA98D00A0FA34 /* TipsMetadata.swift */,
+				BF8995F5265DAD9600A0FA34 /* ProductCategories.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +182,7 @@
 				BF7E860F265BE3080078B5C6 /* RecommendationViewController.swift */,
 				BF7E8612265BE5CA0078B5C6 /* TabBarViewController.swift */,
 				BF7E8631265C8EB70078B5C6 /* ProductDetailsViewController.swift */,
+				BF8995E6265D944B00A0FA34 /* ResultsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,27 +343,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8995F6265DAD9600A0FA34 /* ProductCategories.swift in Sources */,
 				BF7E8621265C3C810078B5C6 /* Recommendation.swift in Sources */,
 				BF7E8613265BE5CA0078B5C6 /* TabBarViewController.swift in Sources */,
 				BF7E8601265B11F50078B5C6 /* AppCoordinator.swift in Sources */,
+				BF8995D5265D851A00A0FA34 /* Networking.swift in Sources */,
 				BF554200264C10D400F978A8 /* QuizzViewController.swift in Sources */,
 				BFBE8841265C9A9F002EAB03 /* RecommendationPresenter.swift in Sources */,
+				BF8995F3265DA98D00A0FA34 /* TipsMetadata.swift in Sources */,
 				BFBE8849265D5601002EAB03 /* CategoriesScrollView.swift in Sources */,
+				BF8995E7265D944B00A0FA34 /* ResultsViewController.swift in Sources */,
 				BF3FB7D12655EB0500A790E1 /* Quizz.swift in Sources */,
 				BF5541FC264C10D400F978A8 /* AppDelegate.swift in Sources */,
 				BF5541FE264C10D400F978A8 /* SceneDelegate.swift in Sources */,
+				BF8995F0265DA94200A0FA34 /* Tips.swift in Sources */,
 				BF3FB7F32659663C00A790E1 /* OnboardingWelcomeView.swift in Sources */,
 				BF7E8624265C3CFC0078B5C6 /* RecommendationLibrary.swift in Sources */,
 				BF7E860D265BC9920078B5C6 /* SkipButton.swift in Sources */,
 				BFBE8844265D2B93002EAB03 /* ButtonViewShadow.swift in Sources */,
+				BF8995DB265D856900A0FA34 /* Endpoint.swift in Sources */,
 				BF7E8619265C15580078B5C6 /* TabBarPresenter.swift in Sources */,
 				BF3FB7C82655E90B00A790E1 /* QuizzPresenter.swift in Sources */,
+				BF8995EA265D945D00A0FA34 /* ResultsPresenter.swift in Sources */,
 				BF7E860A265BC50F0078B5C6 /* OnboardingPresenter.swift in Sources */,
+				BF8995E4265D8C8C00A0FA34 /* QuizzAnswers.swift in Sources */,
 				BF3FB7C12655B11900A790E1 /* QuizzItemCollectionViewCell.swift in Sources */,
+				BF8995E1265D8AD600A0FA34 /* UserID.swift in Sources */,
 				BF8995CB265D80EB00A0FA34 /* Categories.swift in Sources */,
 				BF7E8604265B11FE0078B5C6 /* Coordinator.swift in Sources */,
+				BF8995DE265D892800A0FA34 /* UserPreferences.swift in Sources */,
 				BF3FB7F626596D2700A790E1 /* OnboardingViewController.swift in Sources */,
+				BF8995D8265D855400A0FA34 /* Paths.swift in Sources */,
 				BF7E8610265BE3080078B5C6 /* RecommendationViewController.swift in Sources */,
+				BF8995ED265DA82900A0FA34 /* Tip.swift in Sources */,
 				BF3FB7CD2655EAF100A790E1 /* QuizzLibrary.swift in Sources */,
 				BF3FB7D72656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift in Sources */,
 				BF7E861D265C1CC00078B5C6 /* RecommendationTableViewCell.swift in Sources */,

@@ -9,6 +9,7 @@ import UIKit
 
 protocol QuizzPresenting: AnyObject {
     func setQuizzes(_ quizzes: [Quizz])
+    func setQuizzAnswers(answers: [Dictionary<Int, [(Bool, IndexPath)]>])
 }
 
 class QuizzViewController: UIViewController {
@@ -220,7 +221,6 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if selectedQuizzAnswers.count == categoriesStatus.count {
             submitButton.backgroundColor = UIColor(red: 0.316, green: 0.305, blue: 0.871, alpha: 1)
             submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            presenter.coordinator?.showTabBar()
         } else {
             submitButton.backgroundColor = UIColor(red: 0.959, green: 0.958, blue: 1, alpha: 1)
             submitButton.tintColor = UIColor(red: 0.316, green: 0.305, blue: 0.871, alpha: 1)
@@ -275,6 +275,10 @@ extension QuizzViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - QuizzPresenting
 
 extension QuizzViewController: QuizzPresenting {
+    func setQuizzAnswers(answers: [Dictionary<Int, [(Bool, IndexPath)]>]) {
+        
+    }
+    
     func setQuizzes(_ quizzes: [Quizz]) {
         self.quizzes = quizzes
     }
@@ -310,6 +314,10 @@ extension QuizzViewController {
     
     @objc private func skipQuizz() {
         presenter.coordinator?.showTabBar()
+    }
+    
+    @IBAction func submitQuizz(_ sender: UIButton) {
+        presenter.pushToResults()
     }
 }
 

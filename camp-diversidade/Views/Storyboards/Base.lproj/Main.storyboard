@@ -75,6 +75,94 @@
             </objects>
             <point key="canvasLocation" x="-2002.8985507246377" y="77.678571428571431"/>
         </scene>
+        <!--Results View Controller-->
+        <scene sceneID="vaE-C8-T6h">
+            <objects>
+                <viewController storyboardIdentifier="ResultsViewControllerID" id="fxW-Ra-bVt" customClass="ResultsViewController" customModule="camp_diversidade" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="clX-P4-oPY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lisa" translatesAutoresizingMaskIntoConstraints="NO" id="Ehq-Gg-73T">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TcU-Vj-XeT">
+                                <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3SU-rE-Aam">
+                                        <rect key="frame" x="20" y="24" width="335" height="67"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Que incrível, sua cabeleira é lisa!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uea-Hc-aQd">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="67"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <color key="textColor" red="0.011764705882352941" green="0.0" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hmh-fS-xyB">
+                                        <rect key="frame" x="20" y="223.5" width="335" height="50"/>
+                                        <color key="backgroundColor" red="0.31764705882352939" green="0.30588235294117649" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9kR-JI-uDX"/>
+                                        </constraints>
+                                        <state key="normal" title="Explorar minhas recomendações">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="goToTabBar:" destination="fxW-Ra-bVt" eventType="touchUpInside" id="NNS-uA-5k2"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XY-fB-Gwv">
+                                        <rect key="frame" x="20" y="99" width="335" height="101.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCc-CD-R4U">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="101.5"/>
+                                                <string key="text">Seu cabelo se encaixa no tipo de liso 1C. Os cabelos lisos geralmente tem aspecto mais oleoso, o que pode afetar diretamente na sua saúde, que requer de você cuidados mais frequentes durante a semana.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="3SU-rE-Aam" secondAttribute="trailing" constant="20" id="0qH-89-PoO"/>
+                                    <constraint firstItem="Hmh-fS-xyB" firstAttribute="top" secondItem="4XY-fB-Gwv" secondAttribute="bottom" constant="23" id="8AS-R3-Pmv"/>
+                                    <constraint firstItem="4XY-fB-Gwv" firstAttribute="leading" secondItem="TcU-Vj-XeT" secondAttribute="leading" constant="20" id="F9y-Il-fZ1"/>
+                                    <constraint firstAttribute="trailing" secondItem="4XY-fB-Gwv" secondAttribute="trailing" constant="20" id="JlH-JU-NLp"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hmh-fS-xyB" secondAttribute="trailing" constant="20" id="KIW-20-1Jp"/>
+                                    <constraint firstItem="3SU-rE-Aam" firstAttribute="leading" secondItem="TcU-Vj-XeT" secondAttribute="leading" constant="20" id="Qle-RS-yhi"/>
+                                    <constraint firstItem="3SU-rE-Aam" firstAttribute="top" secondItem="TcU-Vj-XeT" secondAttribute="top" constant="24" id="i4G-pk-dZT"/>
+                                    <constraint firstItem="4XY-fB-Gwv" firstAttribute="top" secondItem="3SU-rE-Aam" secondAttribute="bottom" constant="8" id="sMM-wc-4iO"/>
+                                    <constraint firstItem="Hmh-fS-xyB" firstAttribute="leading" secondItem="TcU-Vj-XeT" secondAttribute="leading" constant="20" id="zK5-x7-NvG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DpU-bY-qF4"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="0.56470588235294117" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ehq-Gg-73T" firstAttribute="top" secondItem="DpU-bY-qF4" secondAttribute="top" id="26s-WF-c0f"/>
+                            <constraint firstItem="TcU-Vj-XeT" firstAttribute="top" secondItem="Ehq-Gg-73T" secondAttribute="bottom" id="B2G-DM-z5A"/>
+                            <constraint firstItem="TcU-Vj-XeT" firstAttribute="bottom" secondItem="DpU-bY-qF4" secondAttribute="bottom" id="X2i-qO-Qej"/>
+                            <constraint firstItem="TcU-Vj-XeT" firstAttribute="trailing" secondItem="Ehq-Gg-73T" secondAttribute="trailing" id="hFr-uU-uqq"/>
+                            <constraint firstItem="Ehq-Gg-73T" firstAttribute="trailing" secondItem="DpU-bY-qF4" secondAttribute="trailing" id="i6g-Jy-z6G"/>
+                            <constraint firstItem="Ehq-Gg-73T" firstAttribute="height" secondItem="DpU-bY-qF4" secondAttribute="height" multiplier="0.5" id="qqy-L0-LcJ"/>
+                            <constraint firstItem="TcU-Vj-XeT" firstAttribute="leading" secondItem="Ehq-Gg-73T" secondAttribute="leading" id="rM1-dw-m6Y"/>
+                            <constraint firstItem="Ehq-Gg-73T" firstAttribute="leading" secondItem="DpU-bY-qF4" secondAttribute="leading" id="uAA-cT-NOd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GbB-Wh-DJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1466.4000000000001" y="-654.42278860569718"/>
+        </scene>
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -159,6 +247,9 @@
                                             <constraint firstAttribute="height" constant="50" id="g2Y-05-y5y"/>
                                         </constraints>
                                         <state key="normal" title="Finalizar"/>
+                                        <connections>
+                                            <action selector="submitQuizz:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8D7-VW-8cO"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vmx-84-xhO" userLabel="Horizontal View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
@@ -353,23 +444,23 @@
                                 <rect key="frame" x="20" y="162" width="355" height="47"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oej-bx-9p9" userLabel="Horizontal View">
-                                        <rect key="frame" x="0.0" y="46" width="151" height="1"/>
+                                        <rect key="frame" x="0.0" y="46" width="153.5" height="1"/>
                                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="g9E-Bi-c9o"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="QMM-di-AhK">
-                                        <rect key="frame" x="0.0" y="0.0" width="151" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="153.5" height="38"/>
                                         <subviews>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curvatura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHw-0k-Cq9" userLabel="Produtos">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="38"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Produtos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHw-0k-Cq9" userLabel="Produtos">
+                                                <rect key="frame" x="0.0" y="0.0" width="69" height="38"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSv-QE-Eic">
-                                                <rect key="frame" x="117" y="0.0" width="34" height="38"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dicas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSv-QE-Eic">
+                                                <rect key="frame" x="111" y="0.0" width="42.5" height="38"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -823,6 +914,7 @@
     </scenes>
     <resources>
         <image name="descriptionImage" width="375" height="373"/>
+        <image name="lisa" width="512" height="459"/>
         <image name="mascaraBemVindo" width="375" height="336"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
