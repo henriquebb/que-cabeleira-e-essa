@@ -12,13 +12,13 @@ class QuizzItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var quizzItemCollectionViewCellView: UIView!
     @IBOutlet weak var quizzItemCollectionViewCellBottomView: UIView!
     @IBOutlet weak var quizzAnswer: UILabel!
+    @IBOutlet weak var quizzAnswerImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureQuizzItemCollectionViewCellView()
         configureQuizzItemCollectionViewCellBottomView()
     }
-
 }
 
 // MARK: - Quizz Cell UI

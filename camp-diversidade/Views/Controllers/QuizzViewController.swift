@@ -37,14 +37,18 @@ class QuizzViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        configureButtonViewShadow()
+        super.viewDidLayoutSubviews()
+        addPaddingToCollectionView()
+        ButtonViewShadow.configureButtonViewShadow(button: submitButtonView)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: nil) { [self] _ in
-            addPaddingToCollectionView()
-            configureButtonViewShadow()
+        if presenter.coordinator?.tabBarCurrentVC == self {
+            super.viewWillTransition(to: size, with: coordinator)
+            coordinator.animate(alongsideTransition: nil) { [self] _ in
+                addPaddingToCollectionView()
+                ButtonViewShadow.configureButtonViewShadow(button: submitButtonView)
+            }
         }
     }
 }
@@ -85,27 +89,6 @@ extension QuizzViewController {
     private func configureSubmitButton() {
         submitButton.layer.cornerRadius = 8
     }
-    
-    private func configureButtonViewShadow() {
-        
-        submitButtonView.clipsToBounds = false
-        submitButtonView.layer.masksToBounds = false
-
-        let shadowPath0 = UIBezierPath(roundedRect: CGRect(
-                                        x: submitButtonView.bounds.minX,
-                                        y: submitButtonView.bounds.minY,
-                                        width: submitButtonView.bounds.width,
-                                        height: submitButtonView.bounds.height/2),
-                                       cornerRadius: 0)
-        submitButtonView.layer.shadowPath = shadowPath0.cgPath
-        submitButtonView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).cgColor
-        submitButtonView.layer.shadowOpacity = 1
-        submitButtonView.layer.shadowRadius = 18
-        submitButtonView.layer.shadowOffset = CGSize(width: 0, height: -5)
-        //submitButtonView.layer.bounds = submitButtonView.bounds
-        //submitButtonView.layer.position = submitButtonView.center
-        self.view.bringSubviewToFront(submitButtonView)
-    }
 }
 
 // MARK: - Quizz Collection View
@@ -118,6 +101,7 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: registerCollectionViewCell(), for: indexPath) as? QuizzItemCollectionViewCell
         cell?.quizzAnswer.text = currentQuizz?.answers[indexPath.item]
+        cell?.quizzAnswerImage.image = currentQuizz?.images[indexPath.item]
         configureDeselectedItem(cell)
         
         return cell ?? QuizzItemCollectionViewCell()
@@ -180,7 +164,7 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let label = view as? UILabel
         currentQuizz = quizzes[0]
         reloadCollectionView()
-        configureSelectedCategoryButton(label)
+        QuizzViewController.configureSelectedCategoryButton(label)
         lastCategoryIndexSelected = 0
         categoriesStatus[0].toggle()
     }
@@ -243,13 +227,13 @@ extension QuizzViewController: UICollectionViewDelegateFlowLayout {
         return 10
     }
     
-    private func configureSelectedCategoryButton(_ label: UILabel?) {
+    static func configureSelectedCategoryButton(_ label: UILabel?) {
         label?.textColor = UIColor.init(red: 0.015, green: 0, blue: 0.75, alpha: 1)
         label?.font = UIFont.systemFont(ofSize: label?.font.pointSize ?? 0, weight: .medium)
         label?.layoutIfNeeded()
     }
     
-    private func configureDeselectedCategoryButton(_ label: UILabel?) {
+    static func configureDeselectedCategoryButton(_ label: UILabel?) {
         label?.textColor = UIColor.black
         label?.font = UIFont.systemFont(ofSize: label?.font.pointSize ?? 0, weight: .regular)
     }
@@ -299,11 +283,11 @@ extension QuizzViewController {
             let location = sender.location(in: view)
             if (view.hitTest(location, with: nil) as? UILabel) != nil {
                 let lastView = categoriesStackView.subviews[lastCategoryIndexSelected] as? UILabel
-                configureDeselectedCategoryButton(lastView)
+                QuizzViewController.configureDeselectedCategoryButton(lastView)
                 currentQuizz = quizzes[index]
                 reloadCollectionView()
                 selectItems(at: index)
-                configureSelectedCategoryButton(label)
+                QuizzViewController.configureSelectedCategoryButton(label)
                 categoriesStatus[index].toggle()
                 lastCategoryIndexSelected = index
             }

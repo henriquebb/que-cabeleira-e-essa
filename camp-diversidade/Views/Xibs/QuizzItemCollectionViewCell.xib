@@ -46,13 +46,20 @@
                                     <constraint firstItem="19W-IQ-UBg" firstAttribute="centerX" secondItem="UiL-td-BeQ" secondAttribute="centerX" id="ZV6-az-xQn"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mascaraBemVindo" translatesAutoresizingMaskIntoConstraints="NO" id="zx0-Qd-ZIs">
+                                <rect key="frame" x="3" y="3" width="99" height="74"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686274509807" green="0.86274509803921573" blue="0.83529411764705885" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="UiL-td-BeQ" secondAttribute="bottom" constant="3" id="9mv-fk-8Qw"/>
                             <constraint firstItem="UiL-td-BeQ" firstAttribute="leading" secondItem="lp3-fY-6Ku" secondAttribute="leading" constant="3" id="DgX-sA-WX8"/>
+                            <constraint firstItem="zx0-Qd-ZIs" firstAttribute="leading" secondItem="lp3-fY-6Ku" secondAttribute="leading" constant="3" id="GwA-sH-tTe"/>
+                            <constraint firstItem="zx0-Qd-ZIs" firstAttribute="bottom" secondItem="UiL-td-BeQ" secondAttribute="top" constant="3" id="Pw5-zL-OKd"/>
                             <constraint firstAttribute="width" constant="105" id="bFd-pg-FtE"/>
                             <constraint firstAttribute="trailing" secondItem="UiL-td-BeQ" secondAttribute="trailing" constant="3" id="d8F-eI-glS"/>
+                            <constraint firstItem="zx0-Qd-ZIs" firstAttribute="top" secondItem="lp3-fY-6Ku" secondAttribute="top" constant="3" id="q6o-SA-WNk"/>
+                            <constraint firstAttribute="trailing" secondItem="zx0-Qd-ZIs" secondAttribute="trailing" constant="3" id="r0e-mC-eQh"/>
                             <constraint firstAttribute="height" constant="115" id="tqn-sH-cMB"/>
                         </constraints>
                     </view>
@@ -68,6 +75,7 @@
             <size key="customSize" width="105" height="115"/>
             <connections>
                 <outlet property="quizzAnswer" destination="19W-IQ-UBg" id="4aD-WY-W6m"/>
+                <outlet property="quizzAnswerImage" destination="zx0-Qd-ZIs" id="bsF-yk-663"/>
                 <outlet property="quizzItemCollectionViewCellBottomView" destination="UiL-td-BeQ" id="Hzn-Ec-5ui"/>
                 <outlet property="quizzItemCollectionViewCellView" destination="lp3-fY-6Ku" id="KF1-oP-TJ2"/>
             </connections>
@@ -75,6 +83,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="mascaraBemVindo" width="375" height="336"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
