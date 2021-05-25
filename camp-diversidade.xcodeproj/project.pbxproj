@@ -21,7 +21,6 @@
 		BF5541FE264C10D400F978A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FD264C10D400F978A8 /* SceneDelegate.swift */; };
 		BF554200264C10D400F978A8 /* QuizzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5541FF264C10D400F978A8 /* QuizzViewController.swift */; };
 		BF554203264C10D400F978A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF554201264C10D400F978A8 /* Main.storyboard */; };
-		BF554205264C10D800F978A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF554204264C10D800F978A8 /* Assets.xcassets */; };
 		BF554208264C10D800F978A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF554206264C10D800F978A8 /* LaunchScreen.storyboard */; };
 		BF7E8601265B11F50078B5C6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8600265B11F50078B5C6 /* AppCoordinator.swift */; };
 		BF7E8604265B11FE0078B5C6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8603265B11FE0078B5C6 /* Coordinator.swift */; };
@@ -35,6 +34,8 @@
 		BF7E8621265C3C810078B5C6 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8620265C3C810078B5C6 /* Recommendation.swift */; };
 		BF7E8624265C3CFC0078B5C6 /* RecommendationLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8623265C3CFC0078B5C6 /* RecommendationLibrary.swift */; };
 		BF7E8632265C8EB70078B5C6 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7E8631265C8EB70078B5C6 /* ProductDetailsViewController.swift */; };
+		BF8995C7265D7C0500A0FA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF554204264C10D800F978A8 /* Assets.xcassets */; };
+		BF8995CB265D80EB00A0FA34 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995CA265D80EB00A0FA34 /* Categories.swift */; };
 		BFBE8841265C9A9F002EAB03 /* RecommendationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */; };
 		BFBE8844265D2B93002EAB03 /* ButtonViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8843265D2B93002EAB03 /* ButtonViewShadow.swift */; };
 		BFBE8849265D5601002EAB03 /* CategoriesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8848265D5601002EAB03 /* CategoriesScrollView.swift */; };
@@ -71,6 +72,7 @@
 		BF7E8620265C3C810078B5C6 /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		BF7E8623265C3CFC0078B5C6 /* RecommendationLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationLibrary.swift; sourceTree = "<group>"; };
 		BF7E8631265C8EB70078B5C6 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		BF8995CA265D80EB00A0FA34 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationPresenter.swift; sourceTree = "<group>"; };
 		BFBE8843265D2B93002EAB03 /* ButtonViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewShadow.swift; sourceTree = "<group>"; };
 		BFBE8848265D5601002EAB03 /* CategoriesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesScrollView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				BF3FB7D02655EB0500A790E1 /* Quizz.swift */,
 				BF7E8620265C3C810078B5C6 /* Recommendation.swift */,
+				BF8995CA265D80EB00A0FA34 /* Categories.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,9 +292,9 @@
 			files = (
 				BF554208264C10D800F978A8 /* LaunchScreen.storyboard in Resources */,
 				BF3FB7C22655B11900A790E1 /* QuizzItemCollectionViewCell.xib in Resources */,
-				BF554205264C10D800F978A8 /* Assets.xcassets in Resources */,
 				BF3FB7D82656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.xib in Resources */,
 				BF7E861E265C1CC00078B5C6 /* RecommendationTableViewCell.xib in Resources */,
+				BF8995C7265D7C0500A0FA34 /* Assets.xcassets in Resources */,
 				BF3FB7FB265983CE00A790E1 /* FugazOne-Regular.ttf in Resources */,
 				BF554203264C10D400F978A8 /* Main.storyboard in Resources */,
 			);
@@ -321,6 +324,7 @@
 				BF3FB7C82655E90B00A790E1 /* QuizzPresenter.swift in Sources */,
 				BF7E860A265BC50F0078B5C6 /* OnboardingPresenter.swift in Sources */,
 				BF3FB7C12655B11900A790E1 /* QuizzItemCollectionViewCell.swift in Sources */,
+				BF8995CB265D80EB00A0FA34 /* Categories.swift in Sources */,
 				BF7E8604265B11FE0078B5C6 /* Coordinator.swift in Sources */,
 				BF3FB7F626596D2700A790E1 /* OnboardingViewController.swift in Sources */,
 				BF7E8610265BE3080078B5C6 /* RecommendationViewController.swift in Sources */,

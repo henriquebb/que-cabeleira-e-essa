@@ -101,8 +101,12 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: registerCollectionViewCell(), for: indexPath) as? QuizzItemCollectionViewCell
         cell?.quizzAnswer.text = currentQuizz?.answers[indexPath.item]
-        cell?.quizzAnswerImage.image = currentQuizz?.images[indexPath.item]
-        configureDeselectedItem(cell)
+        cell?.quizzAnswerImage.image = UIImage(named: cell?.quizzAnswer.text ?? "")
+        if selectedItems[indexPath.item].0 {
+            configureSelectedItem(cell)
+        } else {
+            configureDeselectedItem(cell)
+        }
         
         return cell ?? QuizzItemCollectionViewCell()
     }
@@ -132,6 +136,12 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? QuizzItemCollectionViewCell
         if !selectedItems[indexPath.item].0 {
+            if (lastCategoryIndexSelected == Categories.curvatura.rawValue
+                    || lastCategoryIndexSelected == Categories.tipo.rawValue)
+                && selectedQuizzAnswers[lastCategoryIndexSelected]?.count ?? 0 > 0 {
+                return
+            }
+            selectedItems[indexPath.item].0 = true
             configureSelectedItem(cell)
         } else {
             guard let quizz = selectedQuizzAnswers[lastCategoryIndexSelected] else {
@@ -143,11 +153,10 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 selectedQuizzAnswers.removeValue(forKey: lastCategoryIndexSelected)
             }
             configureDeselectedItem(cell)
-            selectedItems[indexPath.item].0.toggle()
+            selectedItems[indexPath.item].0 = false
             checkQuizzIsAnswered()
             return
         }
-        selectedItems[indexPath.item].0.toggle()
         selectedItems[indexPath.item].1 = indexPath
         var array = selectedQuizzAnswers[lastCategoryIndexSelected] ?? []
         array.append((true, indexPath))
@@ -243,6 +252,10 @@ extension QuizzViewController: UICollectionViewDelegateFlowLayout {
         cell?.quizzAnswer.textColor = color
         cell?.quizzAnswer.font = UIFont.systemFont(ofSize: cell?.quizzAnswer.font.pointSize ?? 0, weight: .bold)
         cell?.quizzItemCollectionViewCellView.backgroundColor = color
+        guard let imageName = cell?.quizzAnswer.text else {
+            return
+        }
+        cell?.quizzAnswerImage.image = UIImage(named: "\(imageName)Selecionada")
         cell?.layoutIfNeeded()
     }
     
@@ -251,6 +264,7 @@ extension QuizzViewController: UICollectionViewDelegateFlowLayout {
         cell?.quizzAnswer.textColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
         cell?.quizzAnswer.font = UIFont.systemFont(ofSize: cell?.quizzAnswer.font.pointSize ?? 0, weight: .regular)
         cell?.quizzItemCollectionViewCellView.backgroundColor = color
+        cell?.quizzAnswerImage.image = UIImage(named: cell?.quizzAnswer.text ?? "")
     }
     
     private func addPaddingToCollectionView() {

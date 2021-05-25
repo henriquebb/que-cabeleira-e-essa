@@ -42,7 +42,7 @@ class QuizzLibrary {
                                        "Queda dos fios", "Corte químico", "Fios elásticos"], images: []))
         quizzes.append(Quizz(question: "Prefiro produtos que sejam...",
                              answers: ["Adaptáveis ao meu cabelo", "Veganos", "Cruelty free",
-                                       "Naturais", "No poo/Low poo", "Sem parabenos"], images: []))
+                                       "Naturais", "No poo ∕ Low poo", "Sem parabenos"], images: []))
         quizzes.append(Quizz(question: "O que você deseja conseguir com cuidados regulares com o cabelo?",
                              answers: ["Brilho", "Maciez e Hidratação", "Definição",
                                        "Crescimento dos fios", "Controle da oleosidade", "Antifrizz",

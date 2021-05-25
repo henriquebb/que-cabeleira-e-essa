@@ -24,6 +24,10 @@ class RecommendationTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    override func layoutSubviews() {
+        //addShadow()
+    }
 }
 
 //MARK: - UI Style
@@ -34,21 +38,20 @@ extension RecommendationTableViewCell {
         self.cellBackgroundView?.layer.cornerRadius = 8
         self.clipsToBounds = false
         self.layer.masksToBounds = false
-        //addShadow()
     }
     
     func addShadow() {
-//
-//        guard let backgroundView = cellBackgroundView else {
-//            return
-//        }
-//        let rect = CGRect(x: self.bounds.minX, y: self.bounds.minY, width: self.bounds.width, height: self.bounds.height + 50)
-//        let shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: 8)
-//        backgroundView.layer.shadowPath = shadowPath.cgPath
-//        backgroundView.layer.shadowRadius = 28
-//        backgroundView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).cgColor
-//        backgroundView.layer.shadowOpacity = 1
-//        backgroundView.layer.shadowOffset = CGSize(width: 4, height: 4)
+
+        guard let backgroundView = cellBackgroundView else {
+            return
+        }
+        let rect = CGRect(x: self.bounds.minX, y: self.bounds.minY, width: self.bounds.width, height: self.bounds.height + 50)
+        let shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: 8)
+        backgroundView.layer.shadowPath = shadowPath.cgPath
+        backgroundView.layer.shadowRadius = 28
+        backgroundView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).cgColor
+        backgroundView.layer.shadowOpacity = 1
+        backgroundView.layer.shadowOffset = CGSize(width: 4, height: 4)
 
         let shadows = UIView()
         shadows.frame = self.frame
