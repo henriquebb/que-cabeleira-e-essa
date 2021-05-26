@@ -1,0 +1,6 @@
+framework module Pods_camp_diversidade {
+  umbrella header "Pods-camp-diversidade-umbrella.h"
+
+  export *
+  module * { export * }
+}

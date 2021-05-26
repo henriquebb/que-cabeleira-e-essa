@@ -26,7 +26,28 @@ class RecommendationTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layoutIfNeeded()
         //addShadow()
+    }
+    
+    
+    func setupCells(product: Product) {
+        let url = URL(string: product.imagem)
+        productImage.kf.setImage(with: url)
+        titleLabel.text = product.nome
+        descriptionLabel.text = product.descricao
+        typeLabel.text = product.tipo
+        selectionStyle = .none
+        typeView.isHidden = false
+      
+    }
+    
+    func setupTipsCells(tip: Tip) {
+        titleLabel.text = tip.titulo
+        descriptionLabel.text = tip.descricao
+        typeView.isHidden = true
+        productImage?.image = UIImage(named: "lupa")
     }
 }
 
@@ -34,10 +55,12 @@ class RecommendationTableViewCell: UITableViewCell {
 
 extension RecommendationTableViewCell {
     func styleCell() {
-        typeView.layer.cornerRadius = 8
+       // typeView.layer.cornerRadius = 8
         self.cellBackgroundView?.layer.cornerRadius = 8
         self.clipsToBounds = false
         self.layer.masksToBounds = false
+        self.translatesAutoresizingMaskIntoConstraints = false
+        cellBackgroundView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func addShadow() {

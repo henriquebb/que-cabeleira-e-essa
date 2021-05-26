@@ -6,16 +6,26 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol RecommendationPresenting: AnyObject {
     func setTips(tips: [Tip])
+    func setProducts(products: [Product])
 }
 
 class RecommendationViewController: UIViewController {
     
     //IBOutlets
 
-    @IBOutlet weak var recommendationTableView: UITableView!
+    @IBOutlet weak var recommendationTableView: UITableView! {
+        didSet {
+            recommendationTableView.estimatedRowHeight = 200
+            recommendationTableView.rowHeight = UITableView.automaticDimension
+            recommendationTableView.separatorStyle = .none
+            recommendationTableView.delegate = self
+            recommendationTableView.dataSource = self
+        }
+    }
     @IBOutlet weak var productFilter: CategoriesScrollView!
     @IBOutlet weak var productFilterStackView: UIStackView!
     @IBOutlet weak var categoriesStackView: UIStackView!
@@ -25,6 +35,7 @@ class RecommendationViewController: UIViewController {
     var recommendationLibrary: RecommendationLibrary?
     var recommendations: [Recommendation] = []
     var tips: [Tip] = []
+    var products: [Product] = []
     var recommendationPresenter = RecommendationPresenter()
     var lastCategoryIndexSelected = -1
     var lastFilterIndexSelected = -1
@@ -42,8 +53,8 @@ class RecommendationViewController: UIViewController {
 extension RecommendationViewController {
     
     func setup() {
+   
         setupRecommendations()
-        setupTableView()
         setupProductFilterStackView()
         setupRecommendationView()
         configureFilterStackViewTouch()
@@ -58,12 +69,6 @@ extension RecommendationViewController {
         lastFilterIndexSelected = 0
     }
     
-    func setupTableView() {
-        recommendationTableView.separatorStyle = .none
-        recommendationTableView.delegate = self
-        recommendationTableView.dataSource = self
-    }
-    
     func setupCategoryStackViewItems() {
         let view = categoriesStackView.subviews.first
         let label = view as? UILabel
@@ -76,25 +81,7 @@ extension RecommendationViewController {
     
     func setupRecommendations() {
         recommendationPresenter.attachView(self)
-        recommendationLibrary = RecommendationLibrary()
-        recommendationLibrary?.addDummyRecommendations()
-        recommendations = recommendationLibrary?.recommendations ?? []
-    }
-    
-    func setupCells(cell: RecommendationTableViewCell, index: Int) {
-        //cell.productImage.image = recommendations[index].image
-        cell.titleLabel.text = recommendations[index].title
-        cell.descriptionLabel.text = recommendations[index].description
-        cell.typeLabel.text = recommendations[index].type
-        cell.selectionStyle = .none
-        cell.typeView.isHidden = false
-    }
-    
-    func setupTipsCells(cell: RecommendationTableViewCell, index: Int) {
-        cell.titleLabel.text = tips[index].titulo
-        cell.descriptionLabel.text = tips[index].descricao
-        cell.typeView.isHidden = true
-        cell.imageView?.image = nil
+        recommendationPresenter.getProducts()
     }
     
     func registerTableViewCells() -> String {
@@ -112,11 +99,16 @@ extension RecommendationViewController {
 //MARK: - TableView Cells
 
 extension RecommendationViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if lastCategoryIndexSelected == ProductCategories.tips.rawValue {
             return tips.count
         }
-        return recommendations.count
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,10 +118,12 @@ extension RecommendationViewController: UITableViewDelegate, UITableViewDataSour
             return RecommendationTableViewCell()
         }
         if lastCategoryIndexSelected == ProductCategories.tips.rawValue {
-            setupTipsCells(cell: cell, index: indexPath.item)
+            cell.setupTipsCells(tip: tips[indexPath.row])
         } else {
-            setupCells(cell: cell, index: indexPath.item)
+            cell.setupCells(product: products[indexPath.row])
         }
+        cell.translatesAutoresizingMaskIntoConstraints = false
+       
         return cell
     }
     
@@ -187,7 +181,7 @@ extension RecommendationViewController {
                 QuizzViewController.configureDeselectedCategoryButton(lastView)
                 QuizzViewController.configureSelectedCategoryButton(label)
                 checkReload(index: index)
-                checkTips(index: index)
+                checkCategory(index: index)
                 //let lastView = categoriesStackView.subviews[lastCategoryIndexSelected] as? UILabel
                 //categoriesStatus[index].toggle()
             }
@@ -198,8 +192,14 @@ extension RecommendationViewController {
 //MARK: - RecommendationPresenting
 
 extension RecommendationViewController: RecommendationPresenting {
+    
     func setTips(tips: [Tip]) {
         self.tips = tips
+        recommendationTableView.reloadData()
+    }
+    
+    func setProducts(products: [Product]) {
+        self.products = products
         recommendationTableView.reloadData()
     }
 }
@@ -237,9 +237,11 @@ extension RecommendationViewController {
 //MARK: - Presenter Networking
 
 extension RecommendationViewController {
-    func checkTips(index: Int) {
+    func checkCategory(index: Int) {
         if index == ProductCategories.tips.rawValue {
             recommendationPresenter.getTips()
+        } else {
+            recommendationPresenter.getProducts()
         }
     }
     

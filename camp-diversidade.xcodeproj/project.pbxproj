@@ -48,12 +48,18 @@
 		BF8995F0265DA94200A0FA34 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995EF265DA94200A0FA34 /* Tips.swift */; };
 		BF8995F3265DA98D00A0FA34 /* TipsMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995F2265DA98D00A0FA34 /* TipsMetadata.swift */; };
 		BF8995F6265DAD9600A0FA34 /* ProductCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995F5265DAD9600A0FA34 /* ProductCategories.swift */; };
+		BF8995F9265DC16800A0FA34 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995F8265DC16800A0FA34 /* Product.swift */; };
+		BF8995FC265DC1A000A0FA34 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995FB265DC1A000A0FA34 /* Products.swift */; };
+		BF8995FF265DC1AE00A0FA34 /* ProductsMetada.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8995FE265DC1AE00A0FA34 /* ProductsMetada.swift */; };
 		BFBE8841265C9A9F002EAB03 /* RecommendationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */; };
 		BFBE8844265D2B93002EAB03 /* ButtonViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8843265D2B93002EAB03 /* ButtonViewShadow.swift */; };
 		BFBE8849265D5601002EAB03 /* CategoriesScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE8848265D5601002EAB03 /* CategoriesScrollView.swift */; };
+		D4C7FE243613AA5632C62DDA /* Pods_camp_diversidade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ABD65A13922481C8ED4A6E /* Pods_camp_diversidade.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		294C8A2058445745B7C7F21B /* Pods-camp-diversidade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camp-diversidade.debug.xcconfig"; path = "Target Support Files/Pods-camp-diversidade/Pods-camp-diversidade.debug.xcconfig"; sourceTree = "<group>"; };
+		B6ABD65A13922481C8ED4A6E /* Pods_camp_diversidade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_camp_diversidade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3FB7BF2655B11900A790E1 /* QuizzItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF3FB7C02655B11900A790E1 /* QuizzItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizzItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		BF3FB7C72655E90B00A790E1 /* QuizzPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzPresenter.swift; sourceTree = "<group>"; };
@@ -97,9 +103,13 @@
 		BF8995EF265DA94200A0FA34 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 		BF8995F2265DA98D00A0FA34 /* TipsMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsMetadata.swift; sourceTree = "<group>"; };
 		BF8995F5265DAD9600A0FA34 /* ProductCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategories.swift; sourceTree = "<group>"; };
+		BF8995F8265DC16800A0FA34 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		BF8995FB265DC1A000A0FA34 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		BF8995FE265DC1AE00A0FA34 /* ProductsMetada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsMetada.swift; sourceTree = "<group>"; };
 		BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationPresenter.swift; sourceTree = "<group>"; };
 		BFBE8843265D2B93002EAB03 /* ButtonViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewShadow.swift; sourceTree = "<group>"; };
 		BFBE8848265D5601002EAB03 /* CategoriesScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesScrollView.swift; sourceTree = "<group>"; };
+		D3DE46E2363D8D5477DBDEE0 /* Pods-camp-diversidade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-camp-diversidade.release.xcconfig"; path = "Target Support Files/Pods-camp-diversidade/Pods-camp-diversidade.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +117,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C7FE243613AA5632C62DDA /* Pods_camp_diversidade.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76416EBD705D3004AEA88D0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6ABD65A13922481C8ED4A6E /* Pods_camp_diversidade.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDFB83A9A982A6239AA6CD61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				294C8A2058445745B7C7F21B /* Pods-camp-diversidade.debug.xcconfig */,
+				D3DE46E2363D8D5477DBDEE0 /* Pods-camp-diversidade.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF3FB7B52654A66000A790E1 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +190,9 @@
 				BF8995EF265DA94200A0FA34 /* Tips.swift */,
 				BF8995F2265DA98D00A0FA34 /* TipsMetadata.swift */,
 				BF8995F5265DAD9600A0FA34 /* ProductCategories.swift */,
+				BF8995F8265DC16800A0FA34 /* Product.swift */,
+				BF8995FB265DC1A000A0FA34 /* Products.swift */,
+				BF8995FE265DC1AE00A0FA34 /* ProductsMetada.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +269,8 @@
 				BF3FB7B92654A69B00A790E1 /* App Delegates */,
 				BF5541FA264C10D400F978A8 /* camp-diversidade */,
 				BF5541F9264C10D400F978A8 /* Products */,
+				BDFB83A9A982A6239AA6CD61 /* Pods */,
+				76416EBD705D3004AEA88D0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -276,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF55420C264C10D800F978A8 /* Build configuration list for PBXNativeTarget "camp-diversidade" */;
 			buildPhases = (
+				E3F9319CB157E1C0E1E93FB4 /* [CP] Check Pods Manifest.lock */,
 				BF5541F4264C10D400F978A8 /* Sources */,
 				BF5541F5264C10D400F978A8 /* Frameworks */,
 				BF5541F6264C10D400F978A8 /* Resources */,
+				E7CFFDF31D466AE171F3649B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +374,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E3F9319CB157E1C0E1E93FB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-camp-diversidade-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7CFFDF31D466AE171F3649B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-camp-diversidade/Pods-camp-diversidade-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-camp-diversidade/Pods-camp-diversidade-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-camp-diversidade/Pods-camp-diversidade-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF5541F4264C10D400F978A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -350,6 +428,7 @@
 				BF8995D5265D851A00A0FA34 /* Networking.swift in Sources */,
 				BF554200264C10D400F978A8 /* QuizzViewController.swift in Sources */,
 				BFBE8841265C9A9F002EAB03 /* RecommendationPresenter.swift in Sources */,
+				BF8995FF265DC1AE00A0FA34 /* ProductsMetada.swift in Sources */,
 				BF8995F3265DA98D00A0FA34 /* TipsMetadata.swift in Sources */,
 				BFBE8849265D5601002EAB03 /* CategoriesScrollView.swift in Sources */,
 				BF8995E7265D944B00A0FA34 /* ResultsViewController.swift in Sources */,
@@ -362,6 +441,7 @@
 				BF7E860D265BC9920078B5C6 /* SkipButton.swift in Sources */,
 				BFBE8844265D2B93002EAB03 /* ButtonViewShadow.swift in Sources */,
 				BF8995DB265D856900A0FA34 /* Endpoint.swift in Sources */,
+				BF8995F9265DC16800A0FA34 /* Product.swift in Sources */,
 				BF7E8619265C15580078B5C6 /* TabBarPresenter.swift in Sources */,
 				BF3FB7C82655E90B00A790E1 /* QuizzPresenter.swift in Sources */,
 				BF8995EA265D945D00A0FA34 /* ResultsPresenter.swift in Sources */,
@@ -375,6 +455,7 @@
 				BF3FB7F626596D2700A790E1 /* OnboardingViewController.swift in Sources */,
 				BF8995D8265D855400A0FA34 /* Paths.swift in Sources */,
 				BF7E8610265BE3080078B5C6 /* RecommendationViewController.swift in Sources */,
+				BF8995FC265DC1A000A0FA34 /* Products.swift in Sources */,
 				BF8995ED265DA82900A0FA34 /* Tip.swift in Sources */,
 				BF3FB7CD2655EAF100A790E1 /* QuizzLibrary.swift in Sources */,
 				BF3FB7D72656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift in Sources */,
@@ -523,6 +604,7 @@
 		};
 		BF55420D264C10D800F978A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 294C8A2058445745B7C7F21B /* Pods-camp-diversidade.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -542,6 +624,7 @@
 		};
 		BF55420E264C10D800F978A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3DE46E2363D8D5477DBDEE0 /* Pods-camp-diversidade.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
