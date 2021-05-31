@@ -150,9 +150,11 @@ extension RecommendationViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        setupNavigationBarTitle()
-        recommendationPresenter.setProductSelected(product: products[indexPath.item])
-        recommendationPresenter.coordinator?.instanstiateProductDescriptionModal()
+        if lastCategoryIndexSelected == RecommendationCategories.products.rawValue {
+            setupNavigationBarTitle()
+            recommendationPresenter.setProductSelected(product: products[indexPath.item])
+            recommendationPresenter.coordinator?.instanstiateProductDescriptionModal()
+        }
     }
 }
 
