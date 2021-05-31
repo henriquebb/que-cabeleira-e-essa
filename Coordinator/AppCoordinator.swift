@@ -17,25 +17,37 @@ extension UINavigationController {
     pushViewController(viewController, animated: animated)
     CATransaction.commit()
   }
-
 }
 
 class AppCoordinator: Coordinator {
-    var tabBarCurrentVC: UIViewController?
-    var navigationController: UINavigationController
+    
+    //VCs
+    
+    public var tabBarCurrentVC: UIViewController?
+    public var recommendationViewController: RecommendationViewController?
+    public var quizzViewController: QuizzViewController?
+    public var resultsViewController: ResultsViewController?
+    public var navigationController: UINavigationController
+    
+    //Storyboard
+    
     private var storyboard: UIStoryboard? = nil
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.navigationController.navigationBar.isHidden = true
     }
     
     func start() {
         storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if (UserDefaults.standard.string(forKey: "id") != nil) {
+            showTabBar()
+            return
+        }
         guard let onboardingVC = storyboard?.instantiateViewController(identifier: "OnboardingViewControllerID") as? OnboardingViewController else {
             return
         }
         onboardingVC.presenter.coordinator = self
-        navigationController.navigationBar.isHidden = true
         navigationController.pushViewController(onboardingVC, animated: true)
         
     }
@@ -44,11 +56,9 @@ class AppCoordinator: Coordinator {
         guard let quizzVC = storyboard?.instantiateViewController(identifier: "QuizzViewControllerID") as? QuizzViewController else {
             return
         }
+        quizzViewController = quizzVC
         quizzVC.presenter.coordinator = self
-        navigationController.navigationBar.isHidden = true
         navigationController.popViewController(animated: false)
-        //navigationController.modalPresentationStyle = .overCurrentContext
-        //navigationController.present(quizzVC, animated: true, completion: nil)
         navigationController.pushViewController(viewController: quizzVC, animated: true, completion: nil)
     }
     
@@ -56,43 +66,58 @@ class AppCoordinator: Coordinator {
         guard let tabBarVC = storyboard?.instantiateViewController(identifier: "TabBarViewControllerID") as? TabBarViewController else {
             return
         }
+        tabBarCurrentVC = tabBarVC
         tabBarVC.tabBarPresenter.coordinator = self
         navigationController.popViewController(animated: false)
-        navigationController.navigationBar.isHidden = true
-        navigationController.pushViewController(viewController: tabBarVC, animated: true) {
-            tabBarVC.selectedIndex = 0
-        }
+        self.navigationController.pushViewController(viewController: tabBarVC, animated: false, completion: nil)
     }
     
     func instantiateTabBarVCS() -> [UIViewController] {
         guard let quizzVC = storyboard?.instantiateViewController(identifier: "QuizzViewControllerID") as? QuizzViewController else {
             return []
         }
-        //quizzVC.tabBarItem.selectedImage = UIImage(systemName: "questionmark.circle.fill")
-        quizzVC.tabBarItem = UITabBarItem(title: "Quizz", image: UIImage(systemName: "questionmark.circle"), selectedImage: UIImage(systemName: "questionmark.circle.fill"))
+        quizzVC.presenter.coordinator = self
+        quizzVC.tabBarItem = UITabBarItem(title: "Quiz", image: UIImage(systemName: "questionmark.circle"), selectedImage: UIImage(systemName: "questionmark.circle.fill"))
+        quizzViewController = quizzVC
         
         guard let recommmendationVC = storyboard?.instantiateViewController(identifier: "RecommendationViewControllerID") as? RecommendationViewController else {
             return []
         }
+        
+        guard let aboutVC = storyboard?.instantiateViewController(identifier: "AboutViewControllerID") else {
+            return []
+        }
+        
         recommmendationVC.tabBarItem.image = UIImage(systemName: "house.fill")
+        recommmendationVC.tabBarItem.title = "Início"
+        aboutVC.tabBarItem = UITabBarItem(title: "Sobre", image: UIImage(systemName: "doc.text"), selectedImage: UIImage(systemName: "doc.text.fill"))
         recommmendationVC.recommendationPresenter.coordinator = self
-        return [recommmendationVC, quizzVC]
+        recommendationViewController = recommmendationVC
+        
+        guard let timelineVC = storyboard?.instantiateViewController(identifier: "TimelineViewControllerID") else {
+            return []
+        }
+        timelineVC.tabBarItem = UITabBarItem(title: "Túnel do tempo", image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock.fill"))
+        
+        return [recommmendationVC, quizzVC, timelineVC, aboutVC]
     }
     
     func instanstiateProductDescriptionModal() {
         guard let productVC = storyboard?.instantiateViewController(identifier: "ProductDetailsViewControllerID") as? ProductDetailsViewController else {
             return
         }
+        productVC.recommendationPresenter = recommendationViewController?.recommendationPresenter
         navigationController.pushViewController(productVC, animated: true)
-        //navigationController.present(productVC, animated: true, completion: nil)
     }
     
     func instantiateResultsVC() {
         guard let resultsVC = storyboard?.instantiateViewController(identifier: "ResultsViewControllerID") as? ResultsViewController else {
             return
         }
-        navigationController.popViewController(animated: false)
+        resultsVC.resultsPresenter.quizzPresenter = quizzViewController?.presenter
         resultsVC.resultsPresenter.coordinator = self
-        navigationController.pushViewController(viewController: resultsVC, animated: true, completion: nil)
+        resultsViewController = resultsVC
+        navigationController.popViewController(animated: false)
+        navigationController.pushViewController(viewController: resultsVC, animated: false, completion: nil)
     }
 }

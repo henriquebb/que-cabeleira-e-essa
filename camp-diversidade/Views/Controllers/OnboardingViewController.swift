@@ -151,6 +151,8 @@ extension OnboardingViewController {
     }
     
     @objc private func skipQuizz() {
+        UserDefaults.standard.setValue(false, forKey: "quizz")
+        presenter.signup()
         presenter.coordinator?.showTabBar()
     }
 }
@@ -160,28 +162,63 @@ extension OnboardingViewController {
 extension OnboardingViewController {
     
     private func addScrollContentPageSubviewConstraints() {
-        scrollContentPageSubview.leadingAnchor.constraint(equalTo: welcomeScrollView.contentLayoutGuide.leadingAnchor).isActive = true
-        scrollContentPageSubview.trailingAnchor.constraint(equalTo: welcomeScrollView.contentLayoutGuide.trailingAnchor).isActive = true
-        scrollContentPageSubview.bottomAnchor.constraint(equalTo: welcomeScrollView.contentLayoutGuide.bottomAnchor).isActive = true
-        scrollContentPageSubview.topAnchor.constraint(equalTo: welcomeScrollView.contentLayoutGuide.topAnchor).isActive = true
-        scrollContentPageSubview.heightAnchor.constraint(equalTo: welcomeScrollView.heightAnchor).isActive = true
-        scrollContentPageSubview.widthAnchor.constraint(equalTo: welcomeScrollView.widthAnchor, multiplier: 2).isActive = true
+        scrollContentPageSubview
+            .leadingAnchor
+            .constraint(equalTo: welcomeScrollView.contentLayoutGuide.leadingAnchor)
+            .isActive = true
+        scrollContentPageSubview
+            .trailingAnchor
+            .constraint(equalTo: welcomeScrollView.contentLayoutGuide.trailingAnchor)
+            .isActive = true
+        scrollContentPageSubview
+            .bottomAnchor
+            .constraint(equalTo: welcomeScrollView.contentLayoutGuide.bottomAnchor)
+            .isActive = true
+        scrollContentPageSubview
+            .topAnchor
+            .constraint(equalTo: welcomeScrollView.contentLayoutGuide.topAnchor)
+            .isActive = true
+        scrollContentPageSubview
+            .heightAnchor
+            .constraint(equalTo: welcomeScrollView.heightAnchor)
+            .isActive = true
+        scrollContentPageSubview
+            .widthAnchor
+            .constraint(equalTo: welcomeScrollView.widthAnchor, multiplier: 2)
+            .isActive = true
     }
     
     private func addScrollPagesConstraints(_ views: [OnboardingWelcomeView], _ i: Int) {
-        views[i].topAnchor.constraint(equalTo: scrollContentPageSubview.topAnchor).isActive = true
-        views[i].bottomAnchor.constraint(equalTo: scrollContentPageSubview.bottomAnchor).isActive = true
-        views[i].heightAnchor.constraint(equalTo: welcomeScrollView.heightAnchor).isActive = true
-        views[i].widthAnchor.constraint(equalTo: welcomeScrollView.widthAnchor).isActive = true
+        views[i]
+            .topAnchor
+            .constraint(equalTo: scrollContentPageSubview.topAnchor)
+            .isActive = true
+        views[i]
+            .bottomAnchor
+            .constraint(equalTo: scrollContentPageSubview.bottomAnchor)
+            .isActive = true
+        views[i]
+            .heightAnchor
+            .constraint(equalTo: welcomeScrollView.heightAnchor)
+            .isActive = true
+        views[i]
+            .widthAnchor
+            .constraint(equalTo: welcomeScrollView.widthAnchor)
+            .isActive = true
     }
     
     private func addScrollPagesLeftConstraint(_ views: [OnboardingWelcomeView]) {
-        views[0].leftAnchor.constraint(equalTo: scrollContentPageSubview.leftAnchor, constant: 0).isActive = true
-        views[1].leftAnchor.constraint(equalTo: views[0].rightAnchor, constant: 0).isActive = true
+        views[0]
+            .leftAnchor
+            .constraint(equalTo: scrollContentPageSubview.leftAnchor, constant: 0)
+            .isActive = true
+        views[1]
+            .leftAnchor
+            .constraint(equalTo: views[0].rightAnchor, constant: 0)
+            .isActive = true
     }
 }
 
 extension OnboardingViewController: OnboardingPresenting {
-    
 }
 

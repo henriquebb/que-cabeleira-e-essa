@@ -19,8 +19,13 @@ class QuizzViewController: UIViewController {
     @IBOutlet weak var quizzCollectionView: UICollectionView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var submitButtonView: UIView!
+    @IBOutlet weak var topSubmitButton: UIButton!
     @IBOutlet weak var categoriesScrollViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var skipButton: SkipButton!
+    
+    @IBOutlet weak var quizzBottomAnchorToButton: NSLayoutConstraint!
+    
+    @IBOutlet weak var quizzBottomAnchorToSafeArea: NSLayoutConstraint!
     
     public let presenter = QuizzPresenter()
     var quizzes: [Quizz]  = []
@@ -29,6 +34,7 @@ class QuizzViewController: UIViewController {
     private var lastCategoryIndexSelected: Int = -1
     private var selectedItems: [(Bool, IndexPath)] = []
     private var selectedQuizzAnswers = Dictionary<Int, [(Bool, IndexPath)]>()
+    var userPreference = UserPreferences()
     
 // MARK: - Life Cycle of App
     
@@ -37,10 +43,18 @@ class QuizzViewController: UIViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //setup()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         addPaddingToCollectionView()
         ButtonViewShadow.configureButtonViewShadow(button: submitButtonView)
+        if tabBarController != nil {
+            quizzBottomAnchorToButton.isActive = false
+            quizzBottomAnchorToSafeArea.isActive = true
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -49,6 +63,10 @@ class QuizzViewController: UIViewController {
             coordinator.animate(alongsideTransition: nil) { [self] _ in
                 addPaddingToCollectionView()
                 ButtonViewShadow.configureButtonViewShadow(button: submitButtonView)
+                if tabBarController != nil {
+                    quizzBottomAnchorToButton.isActive = false
+                    quizzBottomAnchorToSafeArea.isActive = true
+                }
             }
         }
     }
@@ -88,7 +106,26 @@ extension QuizzViewController {
     }
     
     private func configureSubmitButton() {
+        if tabBarController != nil {
+            //submitButtonView.removeFromSuperview()
+            submitButtonView.isHidden = true
+            skipButton.isHidden = true
+            quizzBottomAnchorToButton.isActive = false
+            quizzBottomAnchorToSafeArea?.isActive = true
+            //quizzCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            quizzCollectionView.updateConstraints()
+            topSubmitButton.isEnabled = false
+            topSubmitButton.addTarget(self, action: #selector(submitQuizz(_:)), for: .touchUpInside)
+            topSubmitButton.isEnabled = false
+            topSubmitButton.layoutIfNeeded()
+        } else {
+        quizzBottomAnchorToButton.isActive = true
+        quizzBottomAnchorToSafeArea?.isActive = false
+        submitButtonView.isHidden = false
+        submitButton.isEnabled = false
         submitButton.layer.cornerRadius = 8
+        topSubmitButton.isHidden = true
+        }
     }
 }
 
@@ -142,7 +179,7 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 && selectedQuizzAnswers[lastCategoryIndexSelected]?.count ?? 0 > 0 {
                 return
             }
-            selectedItems[indexPath.item].0 = true
+            selectedItems[indexPath.row].0 = true
             configureSelectedItem(cell)
         } else {
             guard let quizz = selectedQuizzAnswers[lastCategoryIndexSelected] else {
@@ -154,12 +191,17 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 selectedQuizzAnswers.removeValue(forKey: lastCategoryIndexSelected)
             }
             configureDeselectedItem(cell)
-            selectedItems[indexPath.item].0 = false
+            selectedItems[indexPath.row].0 = false
             checkQuizzIsAnswered()
             return
         }
-        selectedItems[indexPath.item].1 = indexPath
+        selectedItems[indexPath.row].1 = indexPath
         var array = selectedQuizzAnswers[lastCategoryIndexSelected] ?? []
+//        if indexPath.row <= 2 {
+//            array.append((true, IndexPath(row: 0, section: indexPath.section)))
+//        } else {
+//            array.append((true, IndexPath(row: indexPath.row - 2, section: indexPath.section)))
+//        }
         array.append((true, indexPath))
         selectedQuizzAnswers[lastCategoryIndexSelected] = array
         checkQuizzIsAnswered()
@@ -174,7 +216,7 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let label = view as? UILabel
         currentQuizz = quizzes[0]
         reloadCollectionView()
-        QuizzViewController.configureSelectedCategoryButton(label)
+        Filter.configureSelectedCategoryButton(label)
         lastCategoryIndexSelected = 0
         categoriesStatus[0].toggle()
     }
@@ -219,6 +261,10 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func checkQuizzIsAnswered() {
         if selectedQuizzAnswers.count == categoriesStatus.count {
+            view.bringSubviewToFront(topSubmitButton)
+            submitButton.isEnabled = true
+            topSubmitButton.isEnabled = true
+            topSubmitButton.layoutIfNeeded()
             submitButton.backgroundColor = UIColor(red: 0.316, green: 0.305, blue: 0.871, alpha: 1)
             submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         } else {
@@ -234,17 +280,6 @@ extension QuizzViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
-    }
-    
-    static func configureSelectedCategoryButton(_ label: UILabel?) {
-        label?.textColor = UIColor.init(red: 0.015, green: 0, blue: 0.75, alpha: 1)
-        label?.font = UIFont.systemFont(ofSize: label?.font.pointSize ?? 0, weight: .medium)
-        label?.layoutIfNeeded()
-    }
-    
-    static func configureDeselectedCategoryButton(_ label: UILabel?) {
-        label?.textColor = UIColor.black
-        label?.font = UIFont.systemFont(ofSize: label?.font.pointSize ?? 0, weight: .regular)
     }
     
     private func configureSelectedItem(_ cell: QuizzItemCollectionViewCell?) {
@@ -301,11 +336,11 @@ extension QuizzViewController {
             let location = sender.location(in: view)
             if (view.hitTest(location, with: nil) as? UILabel) != nil {
                 let lastView = categoriesStackView.subviews[lastCategoryIndexSelected] as? UILabel
-                QuizzViewController.configureDeselectedCategoryButton(lastView)
+                Filter.configureDeselectedCategoryButton(lastView)
                 currentQuizz = quizzes[index]
                 reloadCollectionView()
                 selectItems(at: index)
-                QuizzViewController.configureSelectedCategoryButton(label)
+                Filter.configureSelectedCategoryButton(label)
                 categoriesStatus[index].toggle()
                 lastCategoryIndexSelected = index
             }
@@ -313,10 +348,35 @@ extension QuizzViewController {
     }
     
     @objc private func skipQuizz() {
+        UserDefaults.standard.setValue(false, forKey: "quizz")
+        presenter.signup()
         presenter.coordinator?.showTabBar()
     }
     
     @IBAction func submitQuizz(_ sender: UIButton) {
+        selectedQuizzAnswers[0] = selectedQuizzAnswers[0]?.map({ (tuple) -> (Bool, IndexPath) in
+            if tuple.1.row <= 2 {
+                return (tuple.0, IndexPath(row: 0, section: tuple.1.row))
+            } else {
+                return (tuple.0, IndexPath(row: tuple.1.row - 2, section: tuple.1.row))
+            }
+            
+        })
+        
+        presenter.setAnswers(answers: selectedQuizzAnswers)
+        if tabBarController != nil {
+//            if let recommendationVC = presenter.coordinator?.recommendationViewController {
+//                presenter.attachPresenter(presenter: recommendationVC.recommendationPresenter)
+//            }
+            if UserDefaults.standard.bool(forKey: "quizz") {
+                presenter.pushToResults()
+                return
+            }
+            
+            //tabBarController?.selectedIndex = 0
+            //.dismiss(animated: true, completion: nil)
+        }
+        UserDefaults.standard.setValue(true, forKey: "quizz")
         presenter.pushToResults()
     }
 }

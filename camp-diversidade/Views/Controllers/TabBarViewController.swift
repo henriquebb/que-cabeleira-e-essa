@@ -33,6 +33,14 @@ class TabBarViewController: UITabBarController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        addShadow()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { [self] _ in
+            addShadow()
+        }
     }
 }
 
@@ -61,5 +69,14 @@ extension TabBarViewController {
     
     func setTabBarItem() {
         self.tabBarItem = UITabBarItem(title: "Início", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+    }
+    
+    func addShadow() {
+        let shadowPath = UIBezierPath(roundedRect: tabBar.bounds, cornerRadius: 0)
+        tabBar.layer.shadowPath = shadowPath.cgPath
+        tabBar.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).cgColor
+        tabBar.layer.shadowOpacity = 1
+        tabBar.layer.shadowRadius = 18
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: -5)
     }
 }

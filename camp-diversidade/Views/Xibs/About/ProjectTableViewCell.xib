@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectTableViewCell" rowHeight="746" id="KGk-i7-Jjw" customClass="ProjectTableViewCell" customModule="camp_diversidade" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="746"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="746"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITq-a2-gMD">
+                        <rect key="frame" x="20" y="16" width="281" height="271"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainlogo" translatesAutoresizingMaskIntoConstraints="NO" id="dsJ-vA-bYs">
+                                <rect key="frame" x="68" y="35" width="145" height="201"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.75294117647058822" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dsJ-vA-bYs" firstAttribute="top" secondItem="ITq-a2-gMD" secondAttribute="top" constant="35" id="LfJ-mg-wJ1"/>
+                            <constraint firstAttribute="height" constant="271" id="QCZ-mL-ATl"/>
+                            <constraint firstAttribute="bottom" secondItem="dsJ-vA-bYs" secondAttribute="bottom" constant="35" id="f8X-vq-JHX"/>
+                            <constraint firstAttribute="trailing" secondItem="dsJ-vA-bYs" secondAttribute="trailing" constant="68" id="nDO-y1-vNw"/>
+                            <constraint firstItem="dsJ-vA-bYs" firstAttribute="leading" secondItem="ITq-a2-gMD" secondAttribute="leading" constant="68" id="udd-eV-TUP"/>
+                        </constraints>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Wfp-WF-Muk">
+                        <rect key="frame" x="20" y="307" width="281" height="439"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZZ-Fc-5S8">
+                                <rect key="frame" x="0.0" y="0.0" width="281" height="439"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Lisão, cachinhos, ondas... As cabeleiras espalhas Brasil são tão distintas e diversas! É incrível pensar o quanto a diversidade capilar está enraizada na nossa cultura. Ao mesmo tempo, pode ser um pouco complexo identificar qual o tipo da sua cabeleira... 
+Pensando nisso, decidimos desenvolver um projeto que desse autonomia às pessoas ao cuidar das suas madeixas. Que Cabeleira é Essa? veio para auxiliar você com dicas de produtos, cuidados ou apenas para inspirar você a se tornar a sua MELHOR versão!
+
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="A ioasys">
+                                        <attributes>
+                                            <color key="NSColor" red="0.011764705882352941" green="0.0" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+Somos uma start-up pensada para pessoas. A experiência inovadora como causa principal. A tecnologia voltada para um bem maior. Visamos o desenvolvimento da sociedade como um todo. Nós somos o futuro que desejamos criar.</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Wfp-WF-Muk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="9Lb-wM-iEn"/>
+                    <constraint firstItem="ITq-a2-gMD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Ok4-0c-Tny"/>
+                    <constraint firstAttribute="trailing" secondItem="Wfp-WF-Muk" secondAttribute="trailing" constant="20" id="oh0-7b-Nga"/>
+                    <constraint firstAttribute="trailing" secondItem="ITq-a2-gMD" secondAttribute="trailing" constant="20" id="ovd-mL-Om9"/>
+                    <constraint firstAttribute="bottom" secondItem="Wfp-WF-Muk" secondAttribute="bottom" id="r1m-SY-BDp"/>
+                    <constraint firstItem="Wfp-WF-Muk" firstAttribute="top" secondItem="ITq-a2-gMD" secondAttribute="bottom" constant="20" id="sdj-NV-e1c"/>
+                    <constraint firstItem="ITq-a2-gMD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="wx5-TM-7Lp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="projectImageSuperview" destination="ITq-a2-gMD" id="Y7o-cj-BPt"/>
+            </connections>
+            <point key="canvasLocation" x="-29.710144927536234" y="245.75892857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mainlogo" width="512" height="515"/>
+    </resources>
+</document>

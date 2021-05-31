@@ -10,11 +10,16 @@ import Foundation
 protocol QuizzDelegate: AnyObject {
     func getQuizzes()
     func signup()
+    func setAnswers(answers: Dictionary<Int, [(Bool, IndexPath)]>)
+    func updateQuizz()
 }
 
 class QuizzPresenter {
     weak var view: QuizzPresenting?
+    weak var recommendationPresenter: RecommendationPresenter?
     public var coordinator: AppCoordinator?
+    var answers: Dictionary<Int, [(Bool, IndexPath)]> = [:]
+    var networking: Networking?
     
     init() {
         //load
@@ -23,14 +28,48 @@ class QuizzPresenter {
     func attachView(_ view: QuizzPresenting) {
         self.view = view
     }
+    
+    func attachPresenter(presenter: RecommendationPresenter) {
+        recommendationPresenter = presenter
+    }
 }
 
 // MARK: - QuizzDelegate methods
 
 extension QuizzPresenter: QuizzDelegate {
     
+    func setAnswers(answers: Dictionary<Int, [(Bool, IndexPath)]>) {
+        self.answers = answers
+    }
+    
     func pushToResults() {
         coordinator?.instantiateResultsVC()
+    }
+    
+    func updateQuizz() {
+        recommendationPresenter?.isQuizzSubmited = true
+        networking = Networking()
+        let userPreferences = UserPreferenceSetter(answers: answers)
+        guard var url = Endpoint(withPath: .signup).url else {
+            return
+        }
+        guard let id = UserDefaults.standard.string(forKey: "id") else {
+            return
+        }
+        url.appendPathComponent(id)
+        networking?.request(url: url,
+                            method: .PUT,
+                            header: ["content-type": "application/json"],
+                            body: networking?.encodeToJSON(data: userPreferences.userPreference),
+                            completion: { (data, response) in
+                                if Networking.switchResponseCode(response: response as HTTPURLResponse) == 200 {
+                                    print("success")
+                                    self.recommendationPresenter?.isQuizzSubmited = false
+                                    self.pushToResults()
+                                } else {
+                                    print("something went wrong in PUT user")
+                                }
+                            })
     }
     
     func getQuizzes() {
@@ -39,33 +78,18 @@ extension QuizzPresenter: QuizzDelegate {
         view?.setQuizzes(quizzLibrary.quizzes)
     }
     func signup() {
-//        let url = Endpoint(withPath: Path.signup)
-//        let header = ["content-type": "application/json"]
-//        let body = UserPreferences(
-//            curvaturaCabelo: <#T##Int#>,
-//            situacaoCabelo: <#T##Int#>,
-//            temAlisamento: <#T##Bool#>,
-//            temTintura: <#T##Bool#>,
-//            temDescoloracao: <#T##Bool#>,
-//            temCaspa: <#T##Bool#>,
-//            temQueda: <#T##Bool#>,
-//            temFiosElasticos: <#T##Bool#>,
-//            produtoEhVegano: <#T##Bool#>,
-//            produtoEhCrueltyfree: <#T##Bool#>,
-//            produtoEhNoPooLowPoo: <#T##Bool#>,
-//            produtoNaoTemParabenoESimilares: <#T##Bool#>,
-//            produtoEhNatural: <#T##Bool#>,
-//            produtoEhAntiqueda: <#T##Bool#>,
-//            produtoEhAntifrizz: <#T##Bool#>,
-//            produtoEhAntinos: <#T##Bool#>,
-//            produtoDahBrilho: <#T##Bool#>,
-//            produtoDahMaciez: <#T##Bool#>,
-//            produtoDahHidratacao: <#T##Bool#>,
-//            produtoDahDefinicao: <#T##Bool#>,
-//            produtoDahCrescimento: <#T##Bool#>,
-//            produtoDahVolume: <#T##Bool#>,
-//            produtoControlaOleosidade: <#T##Bool#>,
-//            produtoControlaVolume: <#T##Bool#>)
-//        network.request(url: url, method: .POST, header: header, body: <#T##Data?#>, completion: <#T##(Data, HTTPURLResponse) -> Void#>)
+        networking = Networking()
+        guard let url = Endpoint(withPath: .signup).url else {
+            return
+        }
+        let userPreferenceSetter = UserPreferenceSetter(answers: answers)
+        let header = ["content-type": "application/json"]
+    
+        networking?.request(url: url, method: .POST, header: header, body: networking?.encodeToJSON(data: userPreferenceSetter.userPreference), completion: { (data, response) in
+            guard let results = self.networking?.decodeFromJSON(type: Results.self, data: data) else {
+                return
+            }
+            UserDefaults.standard.setValue(results.id, forKey: "id")
+        })
     }
 }
