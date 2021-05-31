@@ -369,7 +369,7 @@ extension QuizzViewController {
 //                presenter.attachPresenter(presenter: recommendationVC.recommendationPresenter)
 //            }
             if UserDefaults.standard.bool(forKey: "quizz") {
-                presenter.pushToResults()
+                presenter.updateQuizz()
                 return
             }
             
