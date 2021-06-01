@@ -114,16 +114,13 @@ extension QuizzViewController {
     
     private func configureSubmitButton() {
         if tabBarController != nil {
-            //submitButtonView.removeFromSuperview()
             submitButtonView.isHidden = true
             skipButton.isHidden = true
             quizzBottomAnchorToButton.isActive = false
             quizzBottomAnchorToSafeArea?.isActive = true
-            //quizzCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
             quizzCollectionView.updateConstraints()
             topSubmitButton.isEnabled = false
             topSubmitButton.addTarget(self, action: #selector(submitQuizz(_:)), for: .touchUpInside)
-            topSubmitButton.isEnabled = false
             topSubmitButton.layoutIfNeeded()
         } else {
         quizzBottomAnchorToButton.isActive = true
@@ -204,11 +201,6 @@ extension QuizzViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
         selectedItems[indexPath.row].1 = indexPath
         var array = selectedQuizzAnswers[lastCategoryIndexSelected] ?? []
-//        if indexPath.row <= 2 {
-//            array.append((true, IndexPath(row: 0, section: indexPath.section)))
-//        } else {
-//            array.append((true, IndexPath(row: indexPath.row - 2, section: indexPath.section)))
-//        }
         array.append((true, indexPath))
         selectedQuizzAnswers[lastCategoryIndexSelected] = array
         checkQuizzIsAnswered()
@@ -372,16 +364,10 @@ extension QuizzViewController {
         
         presenter.setAnswers(answers: selectedQuizzAnswers)
         if tabBarController != nil {
-//            if let recommendationVC = presenter.coordinator?.recommendationViewController {
-//                presenter.attachPresenter(presenter: recommendationVC.recommendationPresenter)
-//            }
             if UserDefaults.standard.bool(forKey: "quizz") {
                 presenter.updateQuizz()
                 return
             }
-            
-            //tabBarController?.selectedIndex = 0
-            //.dismiss(animated: true, completion: nil)
         }
         UserDefaults.standard.setValue(true, forKey: "quizz")
         presenter.pushToResults()

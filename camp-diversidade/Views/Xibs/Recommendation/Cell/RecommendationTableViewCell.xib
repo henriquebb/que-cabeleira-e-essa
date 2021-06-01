@@ -123,7 +123,6 @@
                 <outlet property="imageSuperview" destination="37b-Ik-hAd" id="c2N-M8-zh1"/>
                 <outlet property="productImage" destination="HDD-oI-YHX" id="l5k-i6-pY8"/>
                 <outlet property="stackViewContainer" destination="7ii-yh-bHn" id="3RF-7n-uiT"/>
-                <outlet property="stackViewContainerLeftConstraint" destination="2fc-kK-si0" id="185-Zf-sOC"/>
                 <outlet property="titleLabel" destination="h90-dZ-Gb5" id="0Zl-mJ-6wR"/>
                 <outlet property="typeLabel" destination="2De-gc-eeh" id="Etr-fS-LJI"/>
                 <outlet property="typeView" destination="IO4-nZ-fk5" id="fmW-co-77v"/>

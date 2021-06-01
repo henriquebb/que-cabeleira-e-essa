@@ -24,10 +24,6 @@ class RecommendationTableViewCell: UITableViewCell {
     //Variables
     
     var stackViewLeftConstraintWithoutImage: NSLayoutConstraint?
-    var titleLeftConstraintWithoutImage: NSLayoutConstraint?
-    var descriptionLeftConstraintWithoutImage: NSLayoutConstraint?
-    var imageSuperViewConstraints: [NSLayoutConstraint]?
-    @IBOutlet weak var stackViewContainerLeftConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
