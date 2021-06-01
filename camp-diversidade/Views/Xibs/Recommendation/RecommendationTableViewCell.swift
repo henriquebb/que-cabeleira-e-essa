@@ -27,6 +27,7 @@ class RecommendationTableViewCell: UITableViewCell {
     var titleLeftConstraintWithoutImage: NSLayoutConstraint?
     var descriptionLeftConstraintWithoutImage: NSLayoutConstraint?
     var imageSuperViewConstraints: [NSLayoutConstraint]?
+    @IBOutlet weak var stackViewContainerLeftConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,6 +62,7 @@ class RecommendationTableViewCell: UITableViewCell {
         //self.bringSubviewToFront(imageSuperview)
         //self.addSubview(imageSuperview)
         //NSLayoutConstraint.activate(imageSuperview.constraints)
+        //stackViewContainerLeftConstraint.isActive = true
         imageSuperview.updateConstraints()
         imageSuperview.layoutIfNeeded()
         self.layoutIfNeeded()
@@ -82,11 +84,13 @@ class RecommendationTableViewCell: UITableViewCell {
 ////        }
 //        self.imageSuperview.isHidden = true
 //        self.imageSuperview.layoutIfNeeded()
-        
+        //stackViewContainerLeftConstraint.isActive = false
         imageStackView.isHidden = true
 //        imageSuperview.isHidden = true
 //        productImage?.isHidden = true
+        stackViewLeftConstraintWithoutImage = stackViewContainer.leftAnchor.constraint(equalTo: cellBackgroundView.leftAnchor, constant: 20)
         stackViewLeftConstraintWithoutImage?.isActive = true
+        
         titleLabel.text = tip.titulo
         descriptionLabel.text = tip.descricao
         typeView.isHidden = true

@@ -98,7 +98,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7ii-yh-bHn" secondAttribute="trailing" constant="12" id="1C4-rE-5JM"/>
                             <constraint firstItem="7ii-yh-bHn" firstAttribute="top" secondItem="ER3-P6-msm" secondAttribute="top" constant="5" id="1b2-MD-I8C"/>
-                            <constraint firstItem="Hua-ET-wFw" firstAttribute="trailing" secondItem="7ii-yh-bHn" secondAttribute="leading" id="2fc-kK-si0"/>
+                            <constraint firstItem="Hua-ET-wFw" firstAttribute="trailing" secondItem="7ii-yh-bHn" secondAttribute="leading" priority="999" id="2fc-kK-si0"/>
                             <constraint firstItem="Hua-ET-wFw" firstAttribute="leading" secondItem="ER3-P6-msm" secondAttribute="leading" constant="3" id="PFY-jw-9iq"/>
                             <constraint firstItem="Hua-ET-wFw" firstAttribute="trailing" secondItem="IO4-nZ-fk5" secondAttribute="leading" id="ZG9-qy-ocR"/>
                             <constraint firstItem="Hua-ET-wFw" firstAttribute="top" secondItem="ER3-P6-msm" secondAttribute="top" constant="5" id="bMo-AP-7bJ"/>
@@ -123,6 +123,7 @@
                 <outlet property="imageSuperview" destination="37b-Ik-hAd" id="c2N-M8-zh1"/>
                 <outlet property="productImage" destination="HDD-oI-YHX" id="l5k-i6-pY8"/>
                 <outlet property="stackViewContainer" destination="7ii-yh-bHn" id="3RF-7n-uiT"/>
+                <outlet property="stackViewContainerLeftConstraint" destination="2fc-kK-si0" id="185-Zf-sOC"/>
                 <outlet property="titleLabel" destination="h90-dZ-Gb5" id="0Zl-mJ-6wR"/>
                 <outlet property="typeLabel" destination="2De-gc-eeh" id="Etr-fS-LJI"/>
                 <outlet property="typeView" destination="IO4-nZ-fk5" id="fmW-co-77v"/>
