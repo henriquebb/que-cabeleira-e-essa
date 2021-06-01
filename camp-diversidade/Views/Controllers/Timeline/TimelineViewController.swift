@@ -144,6 +144,6 @@ extension TimelineViewController: UICollectionViewDelegateFlowLayout {
         
         let resultText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
         let textWidth = resultText.boundingRect(with: resultText.size(), options: .usesLineFragmentOrigin, context: nil).width
-        return CGSize(width: ceil(textWidth) + 16, height: 30)
+        return CGSize(width: ceil(textWidth) + 16, height: 20)
     }
 }
