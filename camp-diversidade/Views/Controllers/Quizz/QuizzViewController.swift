@@ -369,7 +369,6 @@ extension QuizzViewController {
 //                return
 //            }
 //        }
-        UserDefaults.standard.setValue(true, forKey: "quizz")
         presenter.pushToResults()
     }
 }

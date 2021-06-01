@@ -28,12 +28,12 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resultsPresenter.attachView(self)
-        resultsPresenter.getResults()
-//        if ((resultsPresenter.coordinator?.tabBarCurrentVC) != nil) {
-//            resultsPresenter.getUserData()
-//        } else {
-//            resultsPresenter.getResults()
-//        }
+        //resultsPresenter.getResults()
+        if (UserDefaults.standard.bool(forKey: "quizz")) {
+            resultsPresenter.getUserData()
+        } else {
+            resultsPresenter.getResults()
+        }
     }
 }
 

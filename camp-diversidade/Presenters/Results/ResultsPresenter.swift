@@ -68,7 +68,7 @@ extension ResultsPresenter: ResultsDelegate  {
                 return
             }
             UserDefaults.standard.setValue(results.id, forKey: "id")
-            
+            UserDefaults.standard.setValue(true, forKey: "quizz")
             self.view?.setResult(result: results.texto)
             
         })
