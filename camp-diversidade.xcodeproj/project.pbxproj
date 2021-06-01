@@ -216,17 +216,10 @@
 		BF31B10126602FBC00579AF5 /* Recommendation */ = {
 			isa = PBXGroup;
 			children = (
+				BFAFE4FA26669FC000D77485 /* Categories */,
+				BFAFE4F926669F8100D77485 /* Tip */,
+				BFAFE4F826669F7900D77485 /* Product */,
 				BF7E8620265C3C810078B5C6 /* Recommendation.swift */,
-				BF8995CA265D80EB00A0FA34 /* Categories.swift */,
-				BF8995EF265DA94200A0FA34 /* Tips.swift */,
-				BF8995F8265DC16800A0FA34 /* Product.swift */,
-				BF8995FE265DC1AE00A0FA34 /* ProductsMetada.swift */,
-				BF8995F2265DA98D00A0FA34 /* TipsMetadata.swift */,
-				BF870220265ED34900D58BE3 /* ProductCategories.swift */,
-				BF87021C265EC06D00D58BE3 /* TipsCategories.swift */,
-				BF8995F5265DAD9600A0FA34 /* RecommendationCategories.swift */,
-				BF8995FB265DC1A000A0FA34 /* Products.swift */,
-				BF8995EC265DA82900A0FA34 /* Tip.swift */,
 			);
 			path = Recommendation;
 			sourceTree = "<group>";
@@ -279,12 +272,12 @@
 		BF3FB7B52654A66000A790E1 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				BF3FB7C72655E90B00A790E1 /* QuizzPresenter.swift */,
-				BF7E8609265BC50F0078B5C6 /* OnboardingPresenter.swift */,
-				BF7E8618265C15580078B5C6 /* TabBarPresenter.swift */,
-				BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */,
-				BF8995E9265D945D00A0FA34 /* ResultsPresenter.swift */,
-				BF31B0D8265FDDE000579AF5 /* TimelinePresenter.swift */,
+				BFAFE4F726669F5300D77485 /* Timeline */,
+				BFAFE4F626669F4C00D77485 /* Results */,
+				BFAFE4F526669F4600D77485 /* TabBar */,
+				BFAFE4F426669F3D00D77485 /* Recommendation */,
+				BFAFE4F326669F3500D77485 /* Onboarding */,
+				BFAFE4F226669F3100D77485 /* Quizz */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -336,14 +329,13 @@
 		BF3FB7BA2654A6C100A790E1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF5541FF264C10D400F978A8 /* QuizzViewController.swift */,
-				BF3FB7F526596D2700A790E1 /* OnboardingViewController.swift */,
-				BF7E860F265BE3080078B5C6 /* RecommendationViewController.swift */,
-				BF7E8612265BE5CA0078B5C6 /* TabBarViewController.swift */,
-				BF7E8631265C8EB70078B5C6 /* ProductDetailsViewController.swift */,
-				BF8995E6265D944B00A0FA34 /* ResultsViewController.swift */,
-				BF8701FF265E88AD00D58BE3 /* AboutViewController.swift */,
-				BF31B0D5265FDDBD00579AF5 /* TimelineViewController.swift */,
+				BFAFE4F126669F2400D77485 /* Timeline */,
+				BFAFE4F026669F1D00D77485 /* About */,
+				BFAFE4EF26669F1600D77485 /* Results */,
+				BFAFE4ED26669EF500D77485 /* TabBar */,
+				BFAFE4EC26669EEB00D77485 /* Recommendation */,
+				BFAFE4EB26669EE100D77485 /* Onboarding */,
+				BFAFE4EA26669EDA00D77485 /* Quizz */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -391,10 +383,8 @@
 		BF53C94F2662FB680048ECBB /* Quizz */ = {
 			isa = PBXGroup;
 			children = (
-				BF3FB7BF2655B11900A790E1 /* QuizzItemCollectionViewCell.swift */,
-				BF3FB7C02655B11900A790E1 /* QuizzItemCollectionViewCell.xib */,
-				BF3FB7D52656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift */,
-				BF3FB7D62656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.xib */,
+				BFAFE4E826669E4D00D77485 /* Cell */,
+				BFAFE4E726669E4400D77485 /* Header */,
 			);
 			path = Quizz;
 			sourceTree = "<group>";
@@ -410,9 +400,8 @@
 		BF53C9512662FB830048ECBB /* Recommendation */ = {
 			isa = PBXGroup;
 			children = (
-				BF7E861B265C1CC00078B5C6 /* RecommendationTableViewCell.swift */,
-				BF7E861C265C1CC00078B5C6 /* RecommendationTableViewCell.xib */,
-				BF870226265EFF9600D58BE3 /* FilterCollectionViewCell.swift */,
+				BFAFE4E926669E5600D77485 /* Cell */,
+				BFAFE4E626669E0E00D77485 /* Filter */,
 			);
 			path = Recommendation;
 			sourceTree = "<group>";
@@ -420,10 +409,8 @@
 		BF53C9542662FBBB0048ECBB /* About */ = {
 			isa = PBXGroup;
 			children = (
-				BF870202265E8AF400D58BE3 /* ProjectTableViewCell.swift */,
-				BF870203265E8AF400D58BE3 /* ProjectTableViewCell.xib */,
-				BF870207265E8B0100D58BE3 /* DeveloperTableViewCell.swift */,
-				BF870208265E8B0100D58BE3 /* DeveloperTableViewCell.xib */,
+				BFAFE4E526669DF700D77485 /* Developer */,
+				BFAFE4E426669DEA00D77485 /* Project */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -484,6 +471,203 @@
 				BF7E8603265B11FE0078B5C6 /* Coordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BFAFE4E426669DEA00D77485 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				BF870202265E8AF400D58BE3 /* ProjectTableViewCell.swift */,
+				BF870203265E8AF400D58BE3 /* ProjectTableViewCell.xib */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		BFAFE4E526669DF700D77485 /* Developer */ = {
+			isa = PBXGroup;
+			children = (
+				BF870207265E8B0100D58BE3 /* DeveloperTableViewCell.swift */,
+				BF870208265E8B0100D58BE3 /* DeveloperTableViewCell.xib */,
+			);
+			path = Developer;
+			sourceTree = "<group>";
+		};
+		BFAFE4E626669E0E00D77485 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				BF870226265EFF9600D58BE3 /* FilterCollectionViewCell.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		BFAFE4E726669E4400D77485 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				BF3FB7D52656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.swift */,
+				BF3FB7D62656961C00A790E1 /* QuizzQuestionHeaderCollectionReusableView.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		BFAFE4E826669E4D00D77485 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF3FB7BF2655B11900A790E1 /* QuizzItemCollectionViewCell.swift */,
+				BF3FB7C02655B11900A790E1 /* QuizzItemCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BFAFE4E926669E5600D77485 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF7E861B265C1CC00078B5C6 /* RecommendationTableViewCell.swift */,
+				BF7E861C265C1CC00078B5C6 /* RecommendationTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BFAFE4EA26669EDA00D77485 /* Quizz */ = {
+			isa = PBXGroup;
+			children = (
+				BF5541FF264C10D400F978A8 /* QuizzViewController.swift */,
+			);
+			path = Quizz;
+			sourceTree = "<group>";
+		};
+		BFAFE4EB26669EE100D77485 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BF3FB7F526596D2700A790E1 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		BFAFE4EC26669EEB00D77485 /* Recommendation */ = {
+			isa = PBXGroup;
+			children = (
+				BFAFE4EE26669F0600D77485 /* Product */,
+				BF7E860F265BE3080078B5C6 /* RecommendationViewController.swift */,
+			);
+			path = Recommendation;
+			sourceTree = "<group>";
+		};
+		BFAFE4ED26669EF500D77485 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BF7E8612265BE5CA0078B5C6 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BFAFE4EE26669F0600D77485 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				BF7E8631265C8EB70078B5C6 /* ProductDetailsViewController.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		BFAFE4EF26669F1600D77485 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				BF8995E6265D944B00A0FA34 /* ResultsViewController.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		BFAFE4F026669F1D00D77485 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				BF8701FF265E88AD00D58BE3 /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		BFAFE4F126669F2400D77485 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				BF31B0D5265FDDBD00579AF5 /* TimelineViewController.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		BFAFE4F226669F3100D77485 /* Quizz */ = {
+			isa = PBXGroup;
+			children = (
+				BF3FB7C72655E90B00A790E1 /* QuizzPresenter.swift */,
+			);
+			path = Quizz;
+			sourceTree = "<group>";
+		};
+		BFAFE4F326669F3500D77485 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BF7E8609265BC50F0078B5C6 /* OnboardingPresenter.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		BFAFE4F426669F3D00D77485 /* Recommendation */ = {
+			isa = PBXGroup;
+			children = (
+				BFBE8840265C9A9F002EAB03 /* RecommendationPresenter.swift */,
+			);
+			path = Recommendation;
+			sourceTree = "<group>";
+		};
+		BFAFE4F526669F4600D77485 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BF7E8618265C15580078B5C6 /* TabBarPresenter.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BFAFE4F626669F4C00D77485 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				BF8995E9265D945D00A0FA34 /* ResultsPresenter.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		BFAFE4F726669F5300D77485 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				BF31B0D8265FDDE000579AF5 /* TimelinePresenter.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		BFAFE4F826669F7900D77485 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				BF870220265ED34900D58BE3 /* ProductCategories.swift */,
+				BF8995F8265DC16800A0FA34 /* Product.swift */,
+				BF8995FB265DC1A000A0FA34 /* Products.swift */,
+				BF8995FE265DC1AE00A0FA34 /* ProductsMetada.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		BFAFE4F926669F8100D77485 /* Tip */ = {
+			isa = PBXGroup;
+			children = (
+				BF8995EF265DA94200A0FA34 /* Tips.swift */,
+				BF8995F2265DA98D00A0FA34 /* TipsMetadata.swift */,
+				BF87021C265EC06D00D58BE3 /* TipsCategories.swift */,
+				BF8995EC265DA82900A0FA34 /* Tip.swift */,
+			);
+			path = Tip;
+			sourceTree = "<group>";
+		};
+		BFAFE4FA26669FC000D77485 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BF8995CA265D80EB00A0FA34 /* Categories.swift */,
+				BF8995F5265DAD9600A0FA34 /* RecommendationCategories.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
