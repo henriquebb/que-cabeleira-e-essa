@@ -363,12 +363,12 @@ extension QuizzViewController {
         })
         
         presenter.setAnswers(answers: selectedQuizzAnswers)
-        if tabBarController != nil {
-            if UserDefaults.standard.bool(forKey: "quizz") {
-                presenter.updateQuizz()
-                return
-            }
-        }
+//        if tabBarController != nil {
+//            if UserDefaults.standard.bool(forKey: "quizz") {
+//                presenter.updateQuizz()
+//                return
+//            }
+//        }
         UserDefaults.standard.setValue(true, forKey: "quizz")
         presenter.pushToResults()
     }
