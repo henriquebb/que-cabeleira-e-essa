@@ -28,8 +28,11 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resultsPresenter.attachView(self)
-        resultsPresenter.getResults()
-
+        if ((resultsPresenter.coordinator?.tabBarCurrentVC) != nil) {
+            resultsPresenter.getUserData()
+        } else {
+            resultsPresenter.getResults()
+        }
     }
 }
 

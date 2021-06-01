@@ -19,12 +19,14 @@ class RecommendationTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var imageSuperview: UIView!
+    @IBOutlet weak var imageStackView: UIStackView!
     
     //Variables
     
     var stackViewLeftConstraintWithoutImage: NSLayoutConstraint?
     var titleLeftConstraintWithoutImage: NSLayoutConstraint?
     var descriptionLeftConstraintWithoutImage: NSLayoutConstraint?
+    var imageSuperViewConstraints: [NSLayoutConstraint]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,24 +40,52 @@ class RecommendationTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        //self.layoutIfNeeded()
         addShadow()
     }
     
     func setupCells(product: Product) {
+        //productImage.insertSubview(self, at: 0)
         let url = URL(string: product.imagem)
+        typeView.isHidden = false
         productImage.kf.setImage(with: url)
         titleLabel.text = product.nome
         descriptionLabel.text = product.descricao
         typeLabel.text = product.tipo
         selectionStyle = .none
-        typeView.isHidden = false
+        //typeView.isHidden = false
+        //imageStackView.isHidden = false
+        imageStackView.isHidden = false
         imageSuperview.backgroundColor = .white
         stackViewLeftConstraintWithoutImage?.isActive = false
+        //self.bringSubviewToFront(imageSuperview)
+        //self.addSubview(imageSuperview)
+        //NSLayoutConstraint.activate(imageSuperview.constraints)
+        imageSuperview.updateConstraints()
+        imageSuperview.layoutIfNeeded()
+        self.layoutIfNeeded()
       
     }
     
     func setupTipsCells(tip: Tip) {
        
+//        imageSuperview.constraints.forEach { constraint in
+//            constraint.isActive = false
+//        }
+        //imageSuperview.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        //imageSuperview.removeFromSuperview()
+        //self.sendSubviewToBack(imageSuperview)
+//        NSLayoutConstraint.deactivate(imageSuperview.constraints)
+////        imageSuperview.constraints.forEach { constraint in
+////            imageSuperViewConstraints?.append(constraint)
+////            constraint.isActive = false
+////        }
+//        self.imageSuperview.isHidden = true
+//        self.imageSuperview.layoutIfNeeded()
+        
+        imageStackView.isHidden = true
+//        imageSuperview.isHidden = true
+//        productImage?.isHidden = true
         stackViewLeftConstraintWithoutImage?.isActive = true
         titleLabel.text = tip.titulo
         descriptionLabel.text = tip.descricao

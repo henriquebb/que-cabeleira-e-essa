@@ -45,6 +45,7 @@ class QuizzViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //setup()
+        checkIfQuizzIsAnswered()
     }
     
     override func viewDidLayoutSubviews() {
@@ -83,6 +84,12 @@ extension QuizzViewController {
         configureSkipButton()
         configureQuizzCollectionView()
         configureSubmitButton()
+    }
+    
+    private func checkIfQuizzIsAnswered() {
+        if UserDefaults.standard.bool(forKey: "quizz") {
+            presenter.pushToResults()
+        }
     }
 }
 

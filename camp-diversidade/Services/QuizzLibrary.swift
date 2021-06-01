@@ -34,7 +34,7 @@ class QuizzLibrary {
                                         UIImage(named: "mascaraBemVindo"),
                                         UIImage(named: "mascaraBemVindo")]))
         quizzes.append(Quizz(question: "Qual é o seu tipo de cabelo",
-                             answers: ["Normal", "Seco", "Oleoso", "Misto"], images: []))
+                             answers: ["Normal", "Oleoso", "Seco", "Misto"], images: []))
         quizzes.append(Quizz(question: "Seu cabelo tem alguma dessas químicas?",
                              answers: ["Nenhuma", "Tintura", "Descoloração", "Alisamento"], images: []))
         quizzes.append(Quizz(question: "Com qual situação você mais se identifica?",

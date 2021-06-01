@@ -124,7 +124,7 @@ extension OnboardingWelcomeView {
         if mainLabel.traitCollection.horizontalSizeClass == .regular && mainLabel.traitCollection.verticalSizeClass == .regular {
             mainLabel.font = UIFont.systemFont(ofSize: 56, weight: .bold)
         } else if mainLabel.traitCollection.horizontalSizeClass == .compact {
-            mainLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+            mainLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         }
     }
     
@@ -134,7 +134,7 @@ extension OnboardingWelcomeView {
         if descriptionLabel.traitCollection.horizontalSizeClass == .regular && descriptionLabel.traitCollection.verticalSizeClass == .regular {
             descriptionLabel.font = UIFont.systemFont(ofSize: 26)
         } else if descriptionLabel.traitCollection.horizontalSizeClass == .compact {
-            descriptionLabel.font = UIFont.systemFont(ofSize: 14)
+            descriptionLabel.font = UIFont.systemFont(ofSize: 17)
         }
     }
 }

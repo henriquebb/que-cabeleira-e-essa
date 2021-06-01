@@ -10,6 +10,7 @@ import UIKit
 protocol ResultsDelegate: AnyObject {
     func pushToTabBar()
     func getResults()
+    func getUserData()
 }
 
 class ResultsPresenter {
@@ -29,6 +30,25 @@ class ResultsPresenter {
 }
 
 extension ResultsPresenter: ResultsDelegate  {
+    
+    func getUserData() {
+        networking = Networking()
+        guard var url = Endpoint(withPath: .signup).url else {
+            return
+        }
+        url = url.appendingPathComponent(UserDefaults.standard.string(forKey: "id") ?? "")
+        
+        networking?.request(url: url, method: .GET, header: ["content-type": "application/json"], body: nil, completion: { data, response in
+            if Networking.switchResponseCode(response: response as HTTPURLResponse) == 200 {
+                guard let results = self.networking?.decodeFromJSON(type: Results.self, data: data) else {
+                    return
+                }
+                self.view?.setResult(result: results.texto)
+            } else {
+                print("error")
+            }
+        })
+    }
     
     func getResults() {
         networking = Networking()
