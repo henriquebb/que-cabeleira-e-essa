@@ -9,7 +9,6 @@ import Foundation
 
 protocol QuizzDelegate: AnyObject {
     func getQuizzes()
-    func signup()
     func setAnswers(answers: Dictionary<Int, [(Bool, IndexPath)]>)
     func updateQuizz()
 }
@@ -77,16 +76,16 @@ extension QuizzPresenter: QuizzDelegate {
         quizzLibrary.addDummyQuizzes()
         view?.setQuizzes(quizzLibrary.quizzes)
     }
-    func signup() {
-        networking = Networking()
+    static func signup(answers: Dictionary<Int, [(Bool, IndexPath)]>) {
+        let networking = Networking()
         guard let url = Endpoint(withPath: .signup).url else {
             return
         }
         let userPreferenceSetter = UserPreferenceSetter(answers: answers)
         let header = ["content-type": "application/json"]
     
-        networking?.request(url: url, method: .POST, header: header, body: networking?.encodeToJSON(data: userPreferenceSetter.userPreference), completion: { (data, response) in
-            guard let results = self.networking?.decodeFromJSON(type: Results.self, data: data) else {
+        networking.request(url: url, method: .POST, header: header, body: networking.encodeToJSON(data: userPreferenceSetter.userPreference), completion: { (data, response) in
+            guard let results = networking.decodeFromJSON(type: Results.self, data: data) else {
                 return
             }
             UserDefaults.standard.setValue(results.id, forKey: "id")

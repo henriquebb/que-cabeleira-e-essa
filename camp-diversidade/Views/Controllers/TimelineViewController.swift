@@ -27,7 +27,6 @@ class TimelineViewController: UIViewController {
                 return
             }
             layout.scrollDirection = .horizontal
-            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
     
@@ -132,5 +131,19 @@ extension TimelineViewController {
         gradientMaskLayer.colors = [UIColor.white.cgColor, UIColor.clear.cgColor,]
         gradientMaskLayer.locations = [0.7, 1]
         yearImage.layer.mask = gradientMaskLayer
+    }
+}
+
+//MARK: - TimelineCollectionViewFlowLayout
+
+extension TimelineViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let text = String(years[indexPath.item].ano)
+        
+        let resultText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17)])
+        let textWidth = resultText.boundingRect(with: resultText.size(), options: .usesLineFragmentOrigin, context: nil).width
+        return CGSize(width: ceil(textWidth) + 16, height: 30)
     }
 }

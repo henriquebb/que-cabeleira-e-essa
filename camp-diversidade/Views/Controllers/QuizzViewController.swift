@@ -356,7 +356,7 @@ extension QuizzViewController {
     
     @objc private func skipQuizz() {
         UserDefaults.standard.setValue(false, forKey: "quizz")
-        presenter.signup()
+        QuizzPresenter.signup(answers: [:])
         presenter.coordinator?.showTabBar()
     }
     
